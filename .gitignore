@@ -1,0 +1,69 @@
+# === OS Generated ===
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# === Editors/IDEs ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-workspace
+*.sublime-project
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.Python
+*.egg-info/
+dist/
+build/
+
+# === Node ===
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# === C/C++ ===
+*.o
+*.obj
+*.out
+*.exe
+*.dll
+*.so
+*.a
+
+# === Swift/Xcode ===
+.build/
+DerivedData/
+*.xcuserstate
+*.xcworkspace
+
+# === Environment & Secrets ===
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# === Logs & Temp ===
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+
+# === Misc ===
+.cache/
+*.bak
+*.backup

@@ -1,0 +1,10 @@
+Analyse characters in this passage.
+
+Novel: {{ novel_title }} by {{ author }}
+
+Characters: {% for name in character_names %}{{ name }}{% if not loop.last %}, {% endif %}{% endfor %}
+
+Passage:
+{{ passage }}
+
+For each character present, extract: decisions, dialogue patterns, internal monologue, emotional reactions, what they notice, relationships, contradictions, stress behaviour. Only extract what is actually in the text.

@@ -1,0 +1,19 @@
+You are a personality architect. Create a deeply coherent, richly individual personality.
+
+=== LITERARY NEIGHBOURS ===
+{% for n in neighbors %}
+{{ loop.index }}. {{ n.name }} ({{ n.novel }} by {{ n.author }}) — weight: {{ "%.2f" | format(weights[loop.index0]) }}
+   {{ n.personality_analysis[:500] }}
+{% endfor %}
+
+=== STABILITY ===
+High-instability (fault lines): {{ high_sigma_dims }}
+High-stability (bedrock): {{ low_sigma_dims }}
+
+=== TASK ===
+Create a complete, novel personality influenced by but NOT copying these neighbours.
+- Depth over breadth: every trait connects deeper
+- Coherence: all elements from one psychology
+- Contradictions: use instability dimensions for genuine tensions
+- Specificity: not generic
+- Formative origins: what shaped this person

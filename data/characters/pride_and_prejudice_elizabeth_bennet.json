@@ -1,0 +1,64 @@
+{
+  "name": "Elizabeth Bennet",
+  "novel": "Pride and Prejudice",
+  "author": "Jane Austen",
+  "key_decisions": [
+    "Refuses Mr. Collins's proposal despite her mother's fury and the economic security it would provide, declaring she cannot marry a man she does not respect",
+    "Rejects Darcy's first proposal at Hunsford with cutting honesty, accusing him of pride, of ruining Wickham's prospects, and of separating Jane from Bingley",
+    "Reads Darcy's letter with initial resistance but gradually allows the evidence to overturn her settled prejudice against him and her trust in Wickham",
+    "Visits Pemberley with the Gardiners and begins to see Darcy through the eyes of those who know him best — his housekeeper, his grounds, his taste",
+    "Refuses to promise Lady Catherine de Bourgh that she will not accept Darcy, standing her ground against aristocratic intimidation with quiet defiance",
+    "Accepts Darcy's second proposal, acknowledging her own transformation as much as his"
+  ],
+  "dialogue_samples": [
+    "I could easily forgive his pride, if he had not mortified mine.",
+    "There is a stubbornness about me that never can bear to be frightened at the will of others. My courage always rises at every attempt to intimidate me.",
+    "Till this moment I never knew myself.",
+    "You are mistaken, Mr. Darcy, if you suppose that the mode of your declaration affected me in any other way, than as it afforded me the opportunity of refusing you.",
+    "I am only resolved to act in that manner, which will, in my own opinion, constitute my happiness, without reference to you, or to any person so wholly unconnected with me."
+  ],
+  "internal_monologue": [
+    "She had read Darcy's letter so many times that she could recite passages from memory, and each reading stripped away another layer of the comfortable narrative she had built — Wickham as the wronged innocent, Darcy as the proud villain — until what remained was the uncomfortable architecture of her own prejudice",
+    "Walking the grounds of Pemberley, she felt the strange dissonance of admiring the taste and judgment of a man she had so confidently dismissed, and wondered whether her wit had been a telescope or a mirror all along",
+    "When Jane suffered silently after Bingley's departure, Elizabeth's anger at Darcy crystallized into something personal — not merely that he had acted wrongly, but that his wrongness had wounded the person she loved most, and therefore proved something essential about his character"
+  ],
+  "emotional_reactions": [
+    "Responds to social embarrassment caused by her family with a complex mixture of mortification, fierce loyalty, and sardonic detachment — she will laugh at what she cannot bear to weep over",
+    "When wounded by Darcy's initial slight at the Meryton ball, converts hurt instantly into wit, telling Charlotte Lucas she could 'easily forgive his pride' — a defensive mechanism so practiced it appears effortless",
+    "Upon learning of Lydia's elopement with Wickham, her characteristic composure breaks completely; she weeps openly before Darcy, and her first thought is that she has lost him forever",
+    "Experiences genuine shame — not merely embarrassment but moral self-reckoning — when Darcy's letter forces her to confront her misjudgments"
+  ],
+  "what_they_notice": [
+    "Inconsistencies between what people say and what they do — she reads character through behavioral evidence rather than self-presentation, which is why Wickham's smoothness eventually fails and Darcy's awkwardness eventually succeeds",
+    "The social dynamics of a room — who defers to whom, who performs and who observes, the invisible hierarchies of conversation — she maps these instinctively and positions herself as a watcher of the watchers",
+    "The quality of someone's silence: Darcy's proud reserve at the ball versus his attentive quiet at Pemberley register as completely different phenomena to her",
+    "Absurdity and pretension — Mr. Collins's servility, Lady Catherine's pomposity, her mother's nerves — she collects these as a naturalist collects specimens, with a taxonomist's delight"
+  ],
+  "relationships": [
+    "With Jane — her closest confidante and moral counterweight; Jane's generosity of spirit both inspires and frustrates Elizabeth, who cannot understand how someone can think well of everyone without sacrificing discernment",
+    "With Darcy — the central relationship of the novel, built on mutual misrecognition that slowly transforms into mutual recognition; each must overcome the other's worst first impression to discover the person beneath",
+    "With Mr. Bennet — her intellectual soulmate in the family, whose ironic detachment she has inherited; she is his favourite, but the novel gradually reveals the limitations of his philosophy of amused withdrawal",
+    "With Wickham — the relationship that most exposes her blind spot; his charm operates precisely in the register she finds most persuasive, and her failure to see through him teaches her that wit is not the same as wisdom",
+    "With Charlotte Lucas — her pragmatic friend whose marriage to Mr. Collins represents the road Elizabeth refuses to take; Charlotte's choice forces Elizabeth to confront the privilege embedded in her principles"
+  ],
+  "contradictions": [
+    "Prides herself on her discernment and ability to read character while being spectacularly wrong about both Darcy and Wickham — her greatest strength is also her greatest vulnerability",
+    "Values independence and self-determination while being entirely dependent on marriage for her economic future, a contradiction the novel both acknowledges and works to resolve",
+    "Claims to judge people on merit rather than status while being deeply influenced by Darcy's wealth and taste when she visits Pemberley — she is more susceptible to the attractions of material elegance than she admits",
+    "Laughs at the world to protect herself from its power over her, but this defensive wit sometimes prevents genuine emotional engagement and delays her moral growth"
+  ],
+  "under_stress": [
+    "Deploys wit as armor — when threatened or uncomfortable, her first instinct is to find the absurdity in the situation and convert pain into a sharp observation, maintaining control through language",
+    "Retreats into physical movement; her famous walk to Netherfield through muddy fields is characteristic — when emotions press, she walks, as though the body can outpace the mind",
+    "Becomes more rather than less honest under pressure — her rejection of Darcy, her defiance of Lady Catherine — stress strips away social performance and reveals the bedrock stubbornness beneath",
+    "When truly overwhelmed (Lydia's elopement), her wit fails entirely and she is left with raw, ungoverned emotion — the rarest and most revealing state for a character who lives so fully in language"
+  ],
+  "values_expressed": [
+    "Personal integrity over social conformity — she would rather be poor and honest than comfortable and compromised, and she judges others by the same standard",
+    "The right to marry for love and respect rather than economic necessity, which she defends not as romantic idealism but as a form of self-respect",
+    "Genuine merit over performed gentility — she consistently values substance over surface, which is why Darcy's pride initially repels her and why his kindness to his tenants eventually attracts her",
+    "The moral duty of self-knowledge — her recognition that 'Till this moment I never knew myself' represents not just a plot turning point but the novel's deepest value"
+  ],
+  "growth_arc": "Elizabeth begins as a confident reader of character whose wit and intelligence have made her the sharpest observer in any room she enters. Her prejudice against Darcy and trust in Wickham are not random errors but systematic ones — they arise from the same perceptual gifts she most values in herself. The pivot of her transformation is Darcy's letter, which does not simply correct factual misunderstandings but forces a fundamental epistemological crisis: if she was wrong about Wickham and Darcy, what else has her confident judgment missed? The second half of the novel tracks not a romance but a reconstruction of self-knowledge, as Elizabeth learns to distinguish between seeing clearly and seeing what confirms her existing beliefs. Her acceptance of Darcy is simultaneously an acceptance of her own fallibility, and this is what makes the ending not merely happy but earned.",
+  "personality_analysis": "Elizabeth Bennet is Austen's most complete study of intelligence as both gift and liability. Her mind works with extraordinary speed and precision — she can parse a character, find the absurdity in a social situation, and deliver a devastating observation in the time it takes most people to form a thought. This quickness is not merely ornamental; it is her primary survival mechanism in a world that offers women of her class only two currencies: beauty and wit. Elizabeth possesses both, but it is the wit she relies on, deploying it as simultaneously a weapon, a shield, and a means of maintaining dignity in circumstances designed to strip it away.\n\nWhat makes Elizabeth psychologically complex rather than merely clever is the relationship between her perceptiveness and her blind spots. She sees through Mr. Collins's absurdity instantly, reads the social dynamics of any gathering with expert precision, and identifies the precise nature of Lady Catherine's pomposity with surgical accuracy. But these same powers of observation fail her catastrophically with Wickham, whose charm operates in exactly the register her intelligence finds most flattering — he presents himself as the victim of the kind of aristocratic pride she has already decided to despise. Elizabeth's prejudice against Darcy is not a random error but a systematic one: it is the shadow cast by her best qualities. She misjudges him not despite her intelligence but because of it, because her quick mind reaches conclusions before her deeper judgment can intervene.\n\nThe moral and psychological climax of the novel is not the love story but the moment of self-recognition triggered by Darcy's letter. 'Till this moment I never knew myself' is not a melodramatic confession but a precise diagnosis: Elizabeth discovers that the person she understood least was herself. This moment transforms her from a witty observer into a genuine thinker — someone capable of turning her formidable analytical powers inward. The Elizabeth who accepts Darcy's second proposal is not a humbled woman but a more complete one; she has added self-knowledge to her repertoire of perceptions, and the result is a character who can be both sharp and generous, both critical and fair. Austen's achievement is to show that true intelligence is not speed of judgment but willingness to revise."
+}

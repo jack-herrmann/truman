@@ -1,0 +1,65 @@
+{
+  "name": "Dorian Gray",
+  "novel": "The Picture of Dorian Gray",
+  "author": "Oscar Wilde",
+  "key_decisions": [
+    "Wishes that the portrait Basil Hallward painted would age in his place, making a bargain with fate that defines and dooms his existence",
+    "Abandons Sibyl Vane after her failed performance, choosing aesthetic perfection over human love and discovering the first mark on his portrait",
+    "Falls under Lord Henry Wotton's influence and adopts his philosophy of New Hedonism, pursuing sensation as the organizing principle of his life",
+    "Murders Basil Hallward when the painter discovers the corruption of the portrait, crossing from moral degradation to physical violence",
+    "Attempts to destroy the portrait with the same knife that killed Basil, an act of desperation that reveals his inability to separate himself from his image",
+    "Pursues ever more extreme sensory experiences — opium dens, manipulation of others, aesthetic obsessions — as the gap between his beautiful face and corrupted soul widens"
+  ],
+  "dialogue_samples": [
+    "The only way to get rid of a temptation is to yield to it. Resist it, and your soul grows sick with longing.",
+    "I am too fond of reading books to care to write them.",
+    "Each of us has heaven and hell in him, Basil.",
+    "You taught me what reality is. How ironic that it should have been you of all people.",
+    "I don't want to be at the mercy of my emotions. I want to use them, to enjoy them, and to dominate them."
+  ],
+  "internal_monologue": [
+    "Before the portrait, Dorian stands as before a confessional — except the portrait does not forgive but merely records, its changing features a ledger of debts he cannot pay and does not intend to, because the whole arrangement was supposed to free him from consequence, not confront him with it",
+    "When he looks in the mirror and sees his own unmarked youth, he feels a strange doubleness — gratitude for the beauty that persists and horror at what its persistence implies, as though his face has become a mask and the portrait the true face",
+    "After Sibyl's death, he discovers that grief, properly aestheticized, can become another form of pleasure — and this discovery, rather than appalling him, confirms Lord Henry's philosophy and drives him further along a path that has no return route",
+    "In the opium den, surrounded by degradation he has helped create, he feels a peace that troubles him more than guilt would — the peace of someone who has placed himself beyond moral categories entirely, in a space where beauty and ugliness, virtue and vice, are merely different textures of experience"
+  ],
+  "emotional_reactions": [
+    "His initial response to Sibyl Vane's love is genuine and almost innocent — he experiences romantic feeling as a new aesthetic experience, which means he values it for its quality rather than its object, a distinction that will prove fatal",
+    "When the portrait first changes, he feels not horror but fascination — the same aesthetic curiosity that Lord Henry cultivated in him, turned now upon the evidence of his own corruption",
+    "Responds to Basil's moral appeals with a flash of genuine anguish before anger takes over — somewhere beneath the New Hedonism, the old conscience still stirs, and he kills Basil partly to silence it",
+    "Experiences moments of sharp, almost unbearable nostalgia for the innocence he has lost — these moments arrive without warning and pass quickly, but they are the closest he comes to authentic emotional life",
+    "His final act of destroying the portrait is driven not by remorse but by a desperate wish to escape the evidence — he cannot bear to see what he has become, which is not the same as wishing he had become something different"
+  ],
+  "what_they_notice": [
+    "Beauty in all its forms — the curve of a lip, the color of a fabric, the quality of light in a room — his aesthetic perception is genuinely refined and operates constantly, filtering every experience through criteria of form and sensation",
+    "The effect he produces on others — he is acutely aware of his own beauty and its power, watching people's reactions to his face with the detached pleasure of an artist observing responses to his work",
+    "The portrait's changes — he monitors it with the obsessive attention of a patient checking symptoms, reading in its degradation a biography of his soul that his mirror refuses to provide",
+    "The difference between people who perform virtue and people who embody it — Lord Henry's cynicism has given him an X-ray vision for hypocrisy, though he is blind to his own"
+  ],
+  "relationships": [
+    "With Lord Henry Wotton — the intellectual seducer whose philosophy of aestheticism provides the framework for Dorian's corruption; Lord Henry is the voice but Dorian becomes the experiment, and neither fully understands what they have created",
+    "With Basil Hallward — the painter whose devotion is the novel's most sincere emotion; Basil loves Dorian with a purity that Dorian cannot reciprocate and ultimately cannot tolerate, because Basil's love demands that Dorian be worthy of it",
+    "With Sibyl Vane — the actress whose love destroys her art, and whose destruction teaches Dorian the lesson Lord Henry has been preaching: that life should serve art, not the reverse; Sibyl's death is the first price someone else pays for Dorian's philosophy",
+    "With the portrait — arguably his most important relationship, the external conscience he cannot silence; the portrait is mirror, judge, and eventually executioner"
+  ],
+  "contradictions": [
+    "Pursues pleasure as the supreme value while being increasingly haunted by the evidence of its costs — the portrait is the physical manifestation of a contradiction he cannot resolve between the life he lives and the soul it produces",
+    "His beauty is both his greatest asset and his greatest curse — it enables his corruption by shielding him from consequences while simultaneously making the corruption of the portrait more grotesque by contrast",
+    "Seeks to place himself beyond conventional morality while being unable to stop checking the portrait — a compulsive act of moral accounting that reveals the conscience he claims to have transcended",
+    "Craves novelty and sensation while being progressively deadened to both — the New Hedonism consumes its own fuel, requiring ever more extreme experiences to produce diminishing returns of feeling"
+  ],
+  "under_stress": [
+    "Retreats into aesthetic distraction — when confronted with the consequences of his actions, he collects jewels, studies perfumes, attends the opera, burying unpleasant feeling beneath layers of sensory experience",
+    "Becomes capable of sudden, decisive violence — the murder of Basil erupts from a man who has spent the novel pursuing refinement, revealing that aestheticism and brutality are not as far apart as the aesthete believes",
+    "His charm intensifies under pressure — when threatened with exposure or confrontation, he becomes more beautiful, more persuasive, more seductive, deploying his appearance as a weapon of deflection",
+    "In his final crisis, he oscillates between the desire to reform and the desire to destroy the evidence, and these two impulses — conscience and vanity — prove equally powerful and mutually canceling"
+  ],
+  "values_expressed": [
+    "Beauty as the supreme value and justification for any behavior — not merely aesthetic preference but a complete philosophy that places form above ethics, sensation above duty, and experience above consequence",
+    "Youth and its preservation as the only thing worth possessing — his terror of aging is not vanity but existential, as though to age would be to cease to exist in the only way that matters",
+    "The primacy of art over life — a value learned from Lord Henry and practiced with increasing recklessness, until his own life becomes a work of art whose medium is other people's suffering",
+    "Freedom from consequence as the precondition of authentic experience — the portrait's bargain is not merely about vanity but about the fantasy of living without accumulation, of experiencing everything and bearing nothing"
+  ],
+  "growth_arc": "Dorian's arc is an anti-growth arc — a progressive emptying rather than filling, a journey not toward wisdom but toward the perfected void. He begins as a genuinely innocent young man, is corrupted by Lord Henry's philosophy and enabled by the portrait's bargain, and then descends through increasingly desperate and extreme experiences in search of a feeling that perpetually recedes. His trajectory reveals Wilde's darkest insight: that a life organized around the pursuit of sensation eventually destroys the capacity for sensation, and that eternal youth without the earned depth of experience is not a gift but a prison. His final act — stabbing the portrait — is not redemption but the recognition that he has become the thing he tried to escape, and that the only portrait left to destroy is himself.",
+  "personality_analysis": "Dorian Gray is Wilde's exploration of what happens when aestheticism is taken from a philosophy to a life. He begins the novel as a blank canvas — beautiful, impressionable, and genuinely innocent — onto which Lord Henry Wotton projects a theory of existence that privileges sensation over morality, beauty over goodness, and experience over consequence. What makes Dorian more than an allegorical figure is the specificity of his psychological responses: his fascination with the changing portrait is not merely horror but a complex mixture of repulsion, curiosity, and a strange pride, as though the degradation recorded there is at least evidence of a life fully lived.\n\nThe psychological engine of Dorian's character is the split between surface and depth that the portrait creates. Before the bargain, Dorian's beauty was simply a fact about his body; after it, beauty becomes a lie — a surface that conceals rather than reveals. This split transforms every social interaction into a performance and every moment of self-reflection into a confrontation with the discrepancy between who he appears to be and what the portrait says he is. Wilde understood that the removal of consequence does not liberate but imprisons: without the feedback loop of aging, of visible deterioration, of physical consequence, Dorian loses the mechanism by which experience is integrated into identity. He has experiences but cannot learn from them, because the learning would show on his face and his face is frozen.\n\nThe deepest irony of Dorian's character is that Lord Henry's philosophy, which was meant to intensify experience, ultimately anesthetizes it. By the novel's end, Dorian has tried everything — love, cruelty, art, opium, murder — and feels less than he did at the beginning. The New Hedonism has consumed its own capacity for pleasure, leaving only the compulsive repetition of sensation without satisfaction. This is Wilde's most devastating critique of the aesthetic movement he helped create: that the pursuit of beauty as an end in itself leads not to richer experience but to emotional bankruptcy, and that the portrait — the external conscience Dorian tried to hide — was always the truest thing about him."
+}

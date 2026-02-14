@@ -14,9 +14,11 @@ env/
 
 # Data (large, generated)
 data/novels/
-data/characters/
-data/checkpoints/
 data/reports/
+
+# Seed data — shipped with the repo (small, hand-crafted)
+# data/characters/  ← NOT ignored: contains seed character profiles + embeddings
+# data/checkpoints/  ← NOT ignored: contains pre-trained VAE checkpoint
 
 # IDE
 .vscode/

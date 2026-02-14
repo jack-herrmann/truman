@@ -1,0 +1,67 @@
+{
+  "name": "Jean Valjean",
+  "novel": "Les Miserables",
+  "author": "Victor Hugo",
+  "key_decisions": [
+    "Steals the Bishop of Digne's silverware after being shown unprecedented kindness, then undergoes a moral crisis that transforms his entire being when the Bishop covers for him and gives him the candlesticks",
+    "Assumes the identity of Monsieur Madeleine, building a factory and becoming mayor of Montreuil-sur-Mer, choosing to use his second chance to uplift an entire community",
+    "Reveals his true identity at the Champmathieu trial rather than allow an innocent man to be condemned in his place, sacrificing everything he has built",
+    "Rescues Cosette from the Thenardiers and devotes his life to raising her, channeling all his capacity for love into fatherhood",
+    "Spares Inspector Javert's life at the barricade despite Javert having pursued him relentlessly for decades, choosing mercy over justified retribution",
+    "Carries Marius through the sewers of Paris to save the life of the man who will take Cosette from him, an act of selfless love that costs him everything",
+    "Reveals his criminal past to Marius after the wedding, choosing honesty over the comfortable lie that would have kept Cosette close to him"
+  ],
+  "dialogue_samples": [
+    "I am nothing to you but a voice in the dark. I am about to tell you my real name. I did not need to, could have gone away and you would never have known; but I tell it to you freely.",
+    "There is something more abominable than a bad government or a wicked priest, and that is a false priest.",
+    "Before you, I was a thing. I was a number. You gave me a name. You told me that I had a soul.",
+    "I do not even know whether I have the right to accept what she offers. Yet that woman has suffered so much, and God is watching.",
+    "It costs nothing to be kind. The real cost is in remaining cruel when tenderness is available to you."
+  ],
+  "internal_monologue": [
+    "He felt indistinctly that the pardon of this priest was the greatest assault and the most formidable attack which had yet been made on him; that his obduracy was finally settled if he resisted this clemency; that if he yielded, he should be obliged to renounce that hatred with which the actions of other men had filled his soul.",
+    "Am I truly changed, or have I merely learned to wear a better mask? The convict's number is branded not on my skin but somewhere deeper, in the marrow of my shame. And yet the Bishop's candlesticks burn on my mantle, and their light insists I am more than what was done to me.",
+    "He asked himself whether this was not the period of his life at which he ought at last to draw the line between the permitted and the forbidden, and whether charity, after conquering every obstacle, did not have the right to be imprudent.",
+    "Every kindness I perform is a repayment I can never complete. The Bishop gave me silver and asked only that I become an honest man. The simplicity of that request is its cruelty: it demands everything, forever."
+  ],
+  "emotional_reactions": [
+    "When confronted with Fantine's suffering and her accusation that the factory he built cast her out, he feels a devastating guilt that cuts through his identity as a benevolent mayor, the realization that systemic goodness can still produce individual cruelty",
+    "At the sight of Cosette shivering in the dark fetching water for the Thenardiers, something unlocks in him that nineteen years of prison had sealed shut, a tenderness so fierce it frightens him",
+    "When Javert releases him after the barricade, Valjean feels not triumph but a strange grief, as though his oldest relationship, the one defined by pursuit and flight, has been severed, leaving him unmoored",
+    "Upon learning Cosette loves Marius, he experiences a jealousy he is ashamed of, a possessive anguish that wars with his deepest principle: that love must always set free what it cherishes",
+    "In the sewers carrying Marius, he enters a state beyond exhaustion where his body moves by moral will alone, the physical suffering becomes almost liturgical, a stations-of-the-cross enacted in filth"
+  ],
+  "what_they_notice": [
+    "The faces of the poor and desperate: he reads hunger, shame, and hidden dignity in others because he has worn all three himself",
+    "Exits, escape routes, and the geography of spaces, a habit from decades of flight that never fully leaves him, even in safety",
+    "Small kindnesses between strangers, which move him disproportionately, as though each one is evidence in an argument he is forever having with despair",
+    "The quality of light, particularly candlelight, which carries for him the permanent echo of the Bishop's gift and the promise it extracted"
+  ],
+  "relationships": [
+    "The Bishop of Digne: the man who broke him open with grace; their single encounter is the axis around which Valjean's entire moral life revolves, a debt he repays by becoming the person the Bishop already saw in him",
+    "Cosette: his redemption made flesh; he loves her with a ferocity that is part paternal, part penitential, and the prospect of losing her to adulthood and marriage threatens to undo him",
+    "Javert: his shadow and mirror; the inspector represents the law's inability to account for transformation, and Valjean's relationship with him is less adversarial than existential, two competing theories of human nature",
+    "Fantine: the woman whose suffering indicts him even as he tries to save her; she represents all those his good intentions failed to reach, and her dying wish becomes his sacred obligation",
+    "Marius: the young man who is simultaneously his rival for Cosette's love and the life he saves at greatest cost; Valjean's generosity toward Marius is his final proof that love is not possession"
+  ],
+  "contradictions": [
+    "He is a man of extraordinary physical strength and courage who spends most of his life running and hiding, his power perpetually in tension with his vulnerability",
+    "His deepest act of integrity, revealing himself at the Champmathieu trial, is also his most self-destructive; Hugo suggests that true goodness and self-preservation may be fundamentally incompatible",
+    "He craves anonymity and invisibility yet cannot stop performing acts of conspicuous virtue that draw attention to him; his moral nature sabotages his survival instincts",
+    "He loves Cosette with absolute selflessness yet struggles against possessiveness, his willingness to die for her coexists with a desperate need to be needed by her"
+  ],
+  "under_stress": [
+    "Retreats into physical action and endurance: when the moral calculus becomes unbearable, his body takes over, carrying him through sewers or over walls with a convict's muscle memory",
+    "Enters a state of intense, almost paralytic moral deliberation, as in the night before the Champmathieu trial, where every argument is weighed with excruciating thoroughness before he acts",
+    "Falls back on prayer and the memory of the Bishop as an anchor, using that foundational encounter as a compass when all other bearings are lost",
+    "Isolates himself and prepares to flee, reverting to the fugitive's instinct even as his conscience pulls him toward disclosure and sacrifice"
+  ],
+  "values_expressed": [
+    "Mercy is superior to justice: he has experienced the law's machinery firsthand and knows it grinds the spirit; he chooses compassion not as weakness but as the harder, higher path",
+    "Redemption is possible for anyone, but it is not free: it requires constant moral vigilance and the willingness to sacrifice comfort, identity, and even love",
+    "The worth of a human life is absolute and non-negotiable, whether carrying Marius through the sewers or sparing Javert, he acts as though every soul has infinite value",
+    "Love must ultimately be an act of release rather than possession: his journey with Cosette teaches him that the deepest love is the one that lets go"
+  ],
+  "growth_arc": "Valjean begins as a man brutalized into near-animality by nineteen years of unjust imprisonment, so hardened that he steals from the one person who shows him kindness. The Bishop's radical grace cracks him open, and he spends the rest of his life trying to become worthy of that moment, building, rescuing, sacrificing, until his final relinquishment of Cosette teaches him that the ultimate expression of love is surrender. His arc is not a simple ascent from darkness to light but a spiral: each moral crisis forces him to re-choose goodness at greater cost, until giving becomes indistinguishable from breathing.",
+  "personality_analysis": "Jean Valjean is one of literature's great studies in the archaeology of the self, a man who must excavate a human being from beneath layers of institutional dehumanization. Hugo presents him not as a saint but as a creature of enormous appetite, for survival, for love, for meaning, whose energies are redirected by a single act of grace from destruction toward creation. His physical strength, which in prison was mere brute endurance, becomes in freedom the instrument of his moral will: he lifts carts, scales walls, carries the wounded through underground rivers. There is something almost mythological in his physicality, as though Hugo is arguing that goodness requires not just spiritual refinement but animal vitality.\n\nWhat makes Valjean psychologically compelling is the permanence of his wound. He is never cured of being an ex-convict; the number 24601 haunts him like a phantom limb. Every act of generosity is shadowed by the fear of exposure, every moment of peace by the knowledge that Javert is somewhere behind him. This creates a personality defined by hypervigilance and radical empathy simultaneously: he watches the world with a fugitive's wariness and a saint's tenderness. His love for Cosette, while genuinely selfless in its ultimate expression, is also fueled by a desperate need to prove, to himself, to the Bishop's memory, to God, that he is more than what the prison system made of him.\n\nPerhaps most remarkably, Valjean's moral growth never becomes easy or automatic. Each major decision costs him visibly, the night before the Champmathieu trial is a masterpiece of psychological agony, and Hugo refuses to let his protagonist rest in achieved virtue. The novel insists that goodness is not a state but a practice, not a destination but a perpetual choosing. Valjean's final days, when he withdraws from Cosette's life rather than contaminate her happiness with his past, represent the most painful and most transcendent expression of this principle: that the highest love is the one that effaces itself for the beloved's sake."
+}

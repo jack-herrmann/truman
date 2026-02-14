@@ -22,7 +22,7 @@ def _load_config() -> dict:
         if p.exists():
             _config = yaml.safe_load(p.read_text())
             return _config
-    _config = {"llm": {"provider": "anthropic", "model": "claude-sonnet-4-20250514"}, "latent": {"dimension": 32}}
+    _config = {"llm": {"provider": "gemini", "model": "gemini-2.0-flash"}, "latent": {"dimension": 32}}
     return _config
 
 
@@ -31,7 +31,7 @@ def _get_llm() -> LLMClient:
     if _llm is not None:
         return _llm
     c = _load_config().get("llm", {})
-    _llm = LLMClient(provider=c.get("provider","anthropic"), model=c.get("model","claude-sonnet-4-20250514"),
+    _llm = LLMClient(provider=c.get("provider","gemini"), model=c.get("model","gemini-2.0-flash"),
                       max_tokens=c.get("max_tokens",4096), temperature=c.get("temperature",0.7))
     return _llm
 

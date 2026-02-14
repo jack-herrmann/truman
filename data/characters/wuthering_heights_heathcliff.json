@@ -1,0 +1,65 @@
+{
+  "name": "Heathcliff",
+  "novel": "Wuthering Heights",
+  "author": "Emily Bronte",
+  "key_decisions": [
+    "Returns to Wuthering Heights after three years of mysterious absence, transformed from a degraded stable boy into a gentleman of wealth and bearing, driven entirely by the need to reclaim Catherine and punish those who separated them",
+    "Marries Isabella Linton not out of love but as a calculated act of revenge against Edgar, weaponizing marriage itself to infiltrate and destroy Thrushcross Grange",
+    "Acquires Wuthering Heights from Hindley through gambling debts, systematically dismantling his former tormentor's estate and dignity while reducing him to a drunken dependent",
+    "Forces the marriage of his sickly son Linton to young Cathy Linton, imprisoning her to ensure legal control over both the Heights and the Grange",
+    "Degrades Hareton Earnshaw — Hindley's son and Catherine's nephew — into illiteracy and servitude, recreating in Hareton his own childhood humiliation as though compelled to perpetuate the cycle",
+    "Chooses to stop eating and retreat into visions of Catherine in his final days, embracing death as reunion rather than continuing to live in a world she no longer inhabits"
+  ],
+  "dialogue_samples": [
+    "I have not broken your heart — you have broken it; and in breaking it, you have broken mine.",
+    "Be with me always — take any form — drive me mad! Only do not leave me in this abyss, where I cannot find you!",
+    "I cannot live without my life! I cannot live without my soul!",
+    "I have no pity! I have no pity! The more the worms writhe, the more I yearn to crush out their entrails!",
+    "If he loved with all the powers of his puny being, he couldn't love as much in eighty years as I could in a day."
+  ],
+  "internal_monologue": [
+    "Every room in Thrushcross Grange speaks of the life Catherine chose instead of him — the polished surfaces, the civilised quiet, the gentle warmth — and each detail is a blade because he knows she chose comfort over truth, and that this choice killed something in both of them",
+    "He looks at Hareton and sees a mirror he cannot bear — the boy has Catherine's eyes and Hindley's claim to the estate, and Heathcliff cannot decide whether to love or destroy what remains of her in this child",
+    "In the dark hours when sleep refuses him, he feels Catherine's presence like a change in atmospheric pressure — not a ghost but an absence so total it has weight and texture, pressing against the walls of every room he enters"
+  ],
+  "emotional_reactions": [
+    "Upon hearing of Catherine's death, he smashes his head against a tree until the bark is bloody, howling not with grief but with rage at the universe for daring to exist without her in it",
+    "When Catherine tells him she has accepted Edgar's proposal, his face goes completely blank — Nelly describes it as a look more terrible than weeping — before the fury breaks through, and even then it is directed not at Catherine but at the world that made such a choice necessary",
+    "Exhibits a strange, almost tender cruelty toward Isabella after their marriage, as though her devotion disgusts him precisely because it reminds him of a love he considers counterfeit compared to his own",
+    "In his final days, experiences something that witnesses describe as rapture — a luminous, terrible joy that frightens those around him more than his rage ever did, because it signals his complete withdrawal from the living world",
+    "Shows flashes of involuntary tenderness toward Hareton that he immediately suppresses with redoubled cruelty, as though kindness is a weakness that would unravel his entire project of revenge"
+  ],
+  "what_they_notice": [
+    "Every trace of Catherine in the physical world — the scratches she carved on the windowsill of the box-bed at the Heights, the moors they walked together, the way her daughter moves — he navigates by a map of her presence that only he can read",
+    "Power relationships and their vulnerabilities — he sees every social bond as a structure that can be exploited, every affection as a lever, every debt as a chain",
+    "The landscape of the moors as an extension of emotional reality — weather, terrain, and season are not backdrop but language, and he reads them as others read faces",
+    "The precise quality of hypocrisy in the Lintons' gentility — he sees through civilised refinement to the weakness and self-interest beneath, though he is blind to the genuine goodness it sometimes conceals"
+  ],
+  "relationships": [
+    "With Catherine Earnshaw — the defining relationship of his existence, experienced not as love in any conventional sense but as ontological necessity; she is not someone he loves but someone he is, and her betrayal is experienced as self-mutilation",
+    "With Hindley Earnshaw — his childhood tormentor whom he destroys with patient, systematic thoroughness, reducing Hindley to the degraded state Hindley once imposed on him, in a revenge that provides no satisfaction because it cannot reach the original wound",
+    "With Edgar Linton — the rival he despises not for any personal quality but for representing everything the social order values over Heathcliff: birth, education, manners, legitimacy — Edgar is the embodiment of a system that declared Heathcliff unworthy of Catherine",
+    "With Hareton Earnshaw — the most psychologically complex relationship after Catherine; Hareton is both the instrument of Heathcliff's revenge on Hindley and a living echo of Heathcliff's own degraded youth, and in the end it is Hareton's resemblance to Catherine that breaks through Heathcliff's will to revenge",
+    "With Isabella Linton — a woman he married purely as a weapon, whose naive romantic love he finds contemptible because it bears no resemblance to the absolute, annihilating passion he considers the only authentic form of attachment"
+  ],
+  "contradictions": [
+    "His love for Catherine is simultaneously the most genuine emotion in the novel and the engine of its greatest cruelty — the same passion that makes him transcendent also makes him monstrous",
+    "He despises the social hierarchy that degraded him while systematically acquiring its instruments of power — property, wealth, legal control — becoming the very kind of tyrant who once oppressed him",
+    "Claims to be beyond human feeling while being driven entirely by feeling; his revenge is not cold calculation but hot grief disguised as strategy",
+    "Destroys everything connected to Catherine — her family, her home, her daughter — while claiming to preserve her memory, as though love and destruction are for him the same impulse expressed in different registers"
+  ],
+  "under_stress": [
+    "Becomes physically violent — not in calculated ways but in eruptions of force that seem to bypass conscious control, as when he hangs Isabella's dog or assaults Hindley",
+    "Retreats into a private world of Catherine's presence that others cannot perceive, becoming eerily calm and disconnected from material reality in ways that terrify those around him",
+    "Intensifies his cruelty toward the vulnerable — under pressure, his pain overflows onto whoever is nearest, regardless of their involvement in its cause",
+    "His body manifests psychological states with unusual directness: he stops eating when Catherine dies, his teeth grind audibly, his complexion changes — he is a man whose flesh has no barrier against his psyche"
+  ],
+  "values_expressed": [
+    "Authenticity of passion over social propriety — he despises the Lintons' civilised affections as shallow counterfeits, valuing the raw, absolute, destructive love he shares with Catherine as the only genuine human bond",
+    "The indissolubility of true connection — he experiences his bond with Catherine as metaphysical fact rather than emotional choice, something that persists beyond death, beyond sanity, beyond morality",
+    "Justice as retribution — he believes that wrongs must be repaid in kind, that the universe owes him restitution for his childhood degradation, and that he is entitled to collect that debt from everyone connected to his suffering",
+    "The primacy of the natural over the civilised — the moors, wildness, elemental force — he consistently identifies truth with what is untamed and falsehood with what is cultivated"
+  ],
+  "growth_arc": "Heathcliff's arc is one of literature's great anti-bildungsromans: rather than growing toward integration and social accommodation, he grows toward ever more absolute expressions of a single consuming passion. His return as a gentleman is not growth but metamorphosis in service of revenge; his acquisition of property and power is not ambition but weaponry. The only genuine change comes at the very end, when the sight of Hareton and young Cathy together — echoing his own lost youth with Catherine — breaks something in his revenge machinery. He does not repent or reform; he simply loses the will to continue, turning instead toward death and the reunion it promises. It is not redemption but exhaustion — the final recognition that revenge cannot reach the wound it was meant to heal.",
+  "personality_analysis": "Heathcliff is Emily Bronte's exploration of what happens when love reaches an intensity that exceeds the human capacity to contain it. He is not a romantic hero, though generations of readers have tried to make him one, nor a simple villain, though his cruelty is real and documented in excruciating detail. He is something more disturbing and more honest: a study of passion as a force of nature, indifferent to moral categories, as capable of destroying its vessel as of ennobling it. His love for Catherine is not an emotion but a condition, as involuntary as gravity, and like gravity it has no moral dimension — it simply is, and everything in its field either orbits or is crushed.\n\nWhat makes Heathcliff psychologically unprecedented is the relationship between his love and his cruelty. These are not separate compartments but manifestations of the same fundamental intensity. The man who howls for Catherine's ghost with genuine anguish is the same man who hangs Isabella's dog, degrades Hareton, and imprisons young Cathy — not despite his capacity for love but because of it. Bronte understood that the most dangerous people are not those who feel nothing but those who feel everything, and who lack the social or psychological structures to mediate between their inner world and their outer behavior. Heathcliff's childhood as a foundling, taken in and then systematically degraded by Hindley, stripped him of every civilising influence except Catherine herself, and when she chose Edgar's world over his, the last restraint broke.\n\nThe deepest psychological insight in Heathcliff's characterization is the futility of his revenge. He executes his vengeance with extraordinary patience and thoroughness — acquiring Wuthering Heights, marrying Isabella, degrading Hareton, controlling young Cathy — and none of it brings him a moment's peace, because the wound was never about property or status but about the ontological rupture of losing the person he experienced as part of himself. His revenge is addressed to a universe that separated him from Catherine, and no amount of earthly power can reach that defendant. In the end, he simply stops — not out of mercy or moral awakening, but because he recognises that the living world contains nothing he wants. His death is not tragedy in the classical sense but something stranger: the final gravitational collapse of a life that had only ever orbited one point, and that point had been removed."
+}

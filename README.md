@@ -51,21 +51,64 @@ CharacterExtractor ──► CharacterDataset ──► Embeddings
 
 ```bash
 pip install -r requirements.txt
+```
 
-# Create a personality (requires ANTHROPIC_API_KEY)
-python3 -c "
+### Option A: Free API (recommended to start)
+
+Get a free API key from [Google AI Studio](https://aistudio.google.com/apikey) (1,500 requests/day) or [Groq Console](https://console.groq.com) (free tier):
+
+```bash
+# Pick one:
+export GEMINI_API_KEY="your-key-here"   # Google Gemini (default)
+export GROQ_API_KEY="your-key-here"     # Groq (llama-3.3-70b)
+
+# Run the demo — creates 3 personalities and compares them
+python3 demo.py
+```
+
+### Option B: Paid API
+
+```bash
+export ANTHROPIC_API_KEY="your-key-here"  # or OPENAI_API_KEY
+# Edit config.yaml → provider: anthropic (or openai)
+python3 demo.py
+```
+
+### Option C: Use as a library
+
+```python
 import asyncio
 from intuition import create_personality, create_agent
 
 async def main():
     kernel = await create_personality()
     agent = await create_agent(kernel)
-    print(f'Meet: {kernel.name}')
-    response = await agent.respond('What matters most to you in life?')
+    print(f"Meet: {kernel.name}")
+    response = await agent.respond("What matters most to you in life?")
     print(response)
 
 asyncio.run(main())
-"
+```
+
+### LLM Providers
+
+| Provider | Env Variable | Default Model | Cost |
+|----------|-------------|---------------|------|
+| `gemini` | `GEMINI_API_KEY` | `gemini-2.0-flash` | Free (1,500 req/day) |
+| `groq` | `GROQ_API_KEY` | `llama-3.3-70b-versatile` | Free tier |
+| `anthropic` | `ANTHROPIC_API_KEY` | `claude-sonnet-4-20250514` | Paid |
+| `openai` | `OPENAI_API_KEY` | `gpt-4o` | Paid |
+
+Set the provider in `config.yaml` or pass it directly: `LLMClient(provider="gemini")`.
+
+## Seed Data
+
+The repo ships with **27 pre-extracted character profiles** from classic literature (Raskolnikov, Elizabeth Bennet, Heathcliff, etc.) plus pre-computed embeddings and a pre-trained VAE checkpoint. This means you can go straight to personality creation without running the full training pipeline.
+
+To regenerate the seed embeddings and VAE from the shipped profiles:
+
+```bash
+python3 scripts/generate_seed_data.py
 ```
 
 ## Full Training Pipeline

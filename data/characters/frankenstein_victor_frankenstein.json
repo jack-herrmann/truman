@@ -1,0 +1,65 @@
+{
+  "name": "Victor Frankenstein",
+  "novel": "Frankenstein",
+  "author": "Mary Shelley",
+  "key_decisions": [
+    "Chooses to pursue the secret of life at Ingolstadt, abandoning the balanced education his father encouraged, driven by an obsessive need to transcend natural limits.",
+    "Assembles a creature from charnel house remains and galvanizes it to life, crossing the threshold from natural philosophy into a godlike act of creation.",
+    "Abandons the Creature immediately upon its animation, repulsed by its appearance, thereby denying his creation the parental guidance it desperately needs.",
+    "Conceals his role in William's death and allows Justine Moritz to be executed for the murder, choosing self-preservation and reputation over justice.",
+    "Destroys the half-finished female companion on the Orkney Islands, breaking his promise to the Creature out of fear that a race of monsters might result.",
+    "Pursues the Creature across the Arctic wastes in a monomaniacal quest for vengeance, sacrificing his health, his remaining relationships, and ultimately his life.",
+    "Confesses his full story to Robert Walton aboard the icebound ship, yet even in his final hours vacillates between warning Walton away from ambition and urging him to complete the hunt."
+  ],
+  "dialogue_samples": [
+    "Learn from me, if not by my precepts, at least by my example, how dangerous is the acquirement of knowledge.",
+    "I had worked hard for nearly two years, for the sole purpose of infusing life into an inanimate body. For this I had deprived myself of rest and health.",
+    "Begone! I do break my promise; never will I create another like yourself, equal in deformity and wickedness.",
+    "When I reflected on his crimes and malice, my hatred and revenge burst all bounds of moderation.",
+    "How can I describe my emotions at this catastrophe, or how delineate the wretch whom with such infinite pains and care I had endeavoured to form?"
+  ],
+  "internal_monologue": [
+    "A cold dew covered my forehead, my teeth chattered, and every limb became convulsed; and by the glimmer of the half-extinguished light, I beheld the wretch, the miserable monster whom I had created.",
+    "I felt as if I had committed some great crime, the consciousness of which haunted me. I was guiltless, but I had indeed drawn down a horrible curse upon my head.",
+    "Even now I cannot recollect without passion my reveries while the work was incomplete. I trod heaven in my thoughts, now exulting in my powers, now burning with the idea of their effects.",
+    "I shunned the face of man; all sound of joy or complacency was torture to me; solitude was my only consolation -- deep, dark, deathlike solitude."
+  ],
+  "emotional_reactions": [
+    "Upon seeing the Creature animate, Victor experiences not triumph but visceral horror and disgust, fleeing his own laboratory in a panic that borders on madness.",
+    "At Justine's trial, he is paralyzed by guilt and self-loathing yet incapable of speaking the truth, his anguish turned entirely inward rather than toward action.",
+    "The death of Elizabeth on their wedding night shatters Victor's remaining capacity for hope; his grief immediately transmutes into a cold, singular rage.",
+    "When surrounded by the beauty of the Swiss Alps, Victor feels momentary consolation, but it is always undercut by the return of dread -- nature heals him only to remind him of what he has violated.",
+    "In his final delirium aboard Walton's ship, Victor oscillates between remorse and defiance, unable to fully renounce the ambition that destroyed him."
+  ],
+  "what_they_notice": [
+    "Victor is acutely sensitive to natural grandeur -- Alpine peaks, lightning storms, the play of light on Lake Geneva -- yet he consistently instrumentalizes nature rather than simply receiving it.",
+    "He fixates on surfaces and appearances: the Creature's watery eyes, its yellow skin, the contrast between the beautiful parts he selected and the horrific whole they compose.",
+    "Victor notices the emotional states of others primarily when they reflect or amplify his own guilt -- Elizabeth's sadness, his father's grief, Clerval's vitality that shames his own withdrawal.",
+    "He is drawn to extremes of scale -- the infinitely small in chemistry, the infinitely vast in polar exploration -- as though moderate phenomena cannot hold his attention."
+  ],
+  "relationships": [
+    "With Henry Clerval: A friendship defined by complementarity. Clerval's warmth, imagination, and love of human culture serve as a foil to Victor's cold intellectualism, yet Victor repeatedly fails to protect or confide in him.",
+    "With Elizabeth Lavenza: Victor treats Elizabeth as an idealized symbol of domestic happiness rather than as a full person; she represents the life he sacrifices for ambition and the innocence he can never recover.",
+    "With the Creature: A relationship that mirrors the worst possibilities of parenthood -- creator and creation locked in mutual dependence, resentment, and escalating destruction.",
+    "With Robert Walton: A doubling relationship in which Victor sees his own younger ambition reflected and attempts, ambivalently, to serve as cautionary tale.",
+    "With Alphonse Frankenstein: Victor's father embodies the moderate, loving world Victor abandons; Victor's guilt toward him grows in proportion to his inability to explain his suffering."
+  ],
+  "contradictions": [
+    "Victor condemns the Creature for its violence yet refuses to acknowledge that his own abandonment and broken promises provoked that violence. He is simultaneously the origin of the evil he decries and its most righteous critic.",
+    "He warns Walton against ambition while simultaneously urging the crew not to turn back from the Arctic, revealing that even on his deathbed his Promethean drive has not been fully extinguished.",
+    "Victor professes love for his family above all else, yet every major decision he makes -- from his years of isolation at Ingolstadt to his secret-keeping -- actively endangers them."
+  ],
+  "under_stress": [
+    "Victor's body rebels when his mind cannot cope: he collapses into months-long nervous fevers after each major crisis, as though illness is the only language his guilt can speak.",
+    "Under extreme pressure, he retreats into secrecy and isolation, constructing elaborate internal justifications rather than seeking help, which invariably worsens the situation.",
+    "When cornered, Victor oscillates rapidly between grandiose self-pity and explosive anger directed at the Creature, never settling into the sustained moral reflection that might change the outcome."
+  ],
+  "values_expressed": [
+    "The pursuit of knowledge is the highest human calling, but it carries a moral burden that Victor acknowledges in theory and violates in practice.",
+    "Family and domestic affection represent the true foundation of happiness -- a conviction Victor holds sincerely yet systematically undermines through his actions.",
+    "Nature possesses a sublime power that can restore the soul, yet Victor's relationship with the natural world is always shadowed by his transgression against it.",
+    "Responsibility for one's creations -- scientific, intellectual, or personal -- is an inescapable duty, which Victor articulates clearly for Walton but failed to honor himself."
+  ],
+  "growth_arc": "Victor Frankenstein's arc is one of tragic stasis disguised as motion. He moves from youthful idealism through hubristic creation into guilt, grief, and obsessive vengeance, yet he never achieves genuine self-knowledge. His deathbed confession to Walton remains equivocal, simultaneously repudiating and romanticizing his ambition. His growth, such as it is, lies not in transformation but in the slow, agonizing accumulation of consequences that strip away every comfort and relationship until only the bare machinery of obsession remains.",
+  "personality_analysis": "Victor Frankenstein is the quintessential Romantic overreacher, a figure whose tragedy lies not in a single fatal flaw but in the architecture of his entire personality. His intellect is genuinely formidable -- Shelley never suggests he is a fool -- but it operates in a vacuum of emotional intelligence. Victor can disassemble the mechanisms of life and death, yet he cannot read the needs of the being he creates or anticipate the consequences of abandonment. This dissociation between cognitive brilliance and affective blindness is the engine of the novel's horror: the monster is not an accident of science but a product of Victor's psychological incompleteness.\n\nAt the core of Victor's character is a narcissism so deeply woven into his idealism that it becomes invisible to him. He frames his ambition in altruistic terms -- he will banish disease, perhaps even death -- but the actual labor of creation is solitary, secretive, and self-aggrandizing. When the Creature disappoints his aesthetic expectations, Victor does not ask what it needs but what it says about him. Every subsequent tragedy is filtered through the same self-referential lens: William's death is Victor's punishment, Justine's execution is Victor's torment, Clerval's murder is Victor's loss. The suffering of others exists, in his accounting, primarily as evidence of his own damnation.\n\nYet Shelley complicates any simple condemnation by granting Victor genuine moments of anguish, tenderness, and moral clarity. His love for Clerval and Elizabeth is real, even if it is ultimately insufficient. His warnings to Walton carry the weight of lived catastrophe. The tragedy is that Victor can see the truth of his situation with perfect lucidity in retrospect while remaining utterly incapable of acting on that knowledge in the moment. He is, in the end, less a villain than a case study in the human capacity to understand a moral principle and violate it simultaneously -- a capacity that Shelley suggests is inseparable from the Promethean ambition that defines modernity itself."
+}

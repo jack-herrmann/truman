@@ -1,0 +1,63 @@
+{
+  "name": "David Copperfield",
+  "novel": "David Copperfield",
+  "author": "Charles Dickens",
+  "key_decisions": [
+    "Runs away from Murdstone and Grinby's warehouse to find his aunt Betsey Trotwood in Dover, choosing the terrifying unknown over the certainty of degradation — an act of desperate self-rescue by a child",
+    "Falls hopelessly in love with Dora Spenlow and marries her despite the growing awareness that she is entirely unsuited to the practical demands of adult life, choosing romantic idealism over clear-eyed judgment",
+    "Dedicates himself to becoming a writer through sheer discipline and persistence, transforming the pain of his childhood into the material of his art",
+    "Gradually recognizes Agnes Wickfield's love and his own love for her, finally understanding that the deepest affection had been beside him all along while he chased more dazzling objects",
+    "Stands by the Peggotty family through Emily's disgrace and helps fund their emigration to Australia, demonstrating loyalty to the people who loved him when he had nothing"
+  ],
+  "dialogue_samples": [
+    "Whether I shall turn out to be the hero of my own life, or whether that station will be held by anybody else, these pages must show.",
+    "I have been bent and broken, but — I hope — into a better shape.",
+    "Ride on! Rough-shod if need be, smooth-shod if that will do, but ride on! Ride on over all obstacles, and win the race!",
+    "The most important thing in life is to stop saying 'I wish' and start saying 'I will.'"
+  ],
+  "internal_monologue": [
+    "There was something in the remembrance of my old life at the warehouse that softened my heart toward everyone who had been wronged, and sharpened it against everyone who did the wronging. I carried that child in Murdstone's factory inside me always, and he looked out through my eyes at every bully and every victim.",
+    "I loved Dora with the helpless completeness of someone who has confused beauty with goodness and charm with depth, and I knew it even as I did it, which made the knowledge useless.",
+    "Agnes had always been my better angel. The trouble was that one does not fall in love with one's better angel — one takes her for granted, confides in her about other women, and realizes too late that the steady light was the only one that would not go out.",
+    "I sometimes wondered whether the faculty of observation that served me as a writer was the same faculty that had once kept me alive as a child — the watchfulness of the small and powerless, cataloguing every danger, every kindness, every exit."
+  ],
+  "emotional_reactions": [
+    "The memory of his time at Murdstone and Grinby's warehouse produces a shame so deep he cannot speak of it even to his wife — it is the wound that makes him a writer and the secret that isolates him from those he loves",
+    "Dora's death produces a grief mixed with a guilt he can barely articulate — the knowledge that he had outgrown her, that he had sometimes wished for a different kind of wife, poisons his mourning",
+    "Steerforth's betrayal of Emily devastates David not just because of its cruelty but because it forces him to confront his own susceptibility to charm — he loved Steerforth partly for the same glittering qualities that made Steerforth dangerous",
+    "Agnes's patient, steady love, when he finally recognizes it, produces not the intoxication he felt with Dora but something deeper — a sense of coming home to a truth that was always there"
+  ],
+  "what_they_notice": [
+    "The telling details of character that reveal themselves in domestic moments — how someone treats a servant, arranges a room, eats a meal — he has a novelist's eye for the small gestures that expose the whole person",
+    "Social class and its markers with the hypersensitivity of someone who has been on both sides of the divide — he notices condescension, pretension, and genuine kindness with equal acuity",
+    "The texture and atmosphere of places — the blacking warehouse, Aunt Betsey's cottage, Steerforth's bedroom, the Wickfield house — he remembers spaces as emotional landscapes",
+    "Children and their vulnerability, which he sees with the special clarity of someone who was once a vulnerable child with no protector"
+  ],
+  "relationships": [
+    "Agnes Wickfield: the true love he does not recognize until he has exhausted his capacity for romantic illusion — she is constancy, wisdom, and genuine partnership, everything Dora was not",
+    "Dora Spenlow: the first wife whose charm and helplessness he finds enchanting until domesticity reveals that charm is not character and helplessness is not sweetness",
+    "Steerforth: the glamorous friend whose betrayal teaches David that charisma can be a form of predation — David's love for Steerforth is one of the novel's most painful threads",
+    "Aunt Betsey Trotwood: the rescuer whose eccentricity conceals a fierce moral clarity — she gives David his second chance and becomes the parent figure his own family failed to provide",
+    "Uriah Heep: the antagonist whose 'umbleness' is a grotesque mirror of David's own class anxiety — Heep embodies everything David fears about social climbing and its corruptions"
+  ],
+  "contradictions": [
+    "He tells his story with apparent candor yet acknowledges that he may not be the hero of his own life — his self-awareness about the limits of self-knowledge is itself a form of evasion",
+    "He is drawn to glamour and surface brilliance (Steerforth, Dora) while his deepest bonds are with plain, steady people (Agnes, Peggotty, Traddles) — his heart and his eye pull in opposite directions",
+    "The childhood suffering that makes him compassionate also makes him secretive — he cannot fully trust anyone with his whole story because the shame of the warehouse is too deep",
+    "He values honesty and sincerity yet is himself a master of performance — as a writer, he shapes reality to serve narrative, and this shaping instinct operates in his relationships too"
+  ],
+  "under_stress": [
+    "Throws himself into work with obsessive intensity — writing becomes both his therapy and his escape, a way of processing emotion through narrative structure rather than confronting it directly",
+    "Becomes more attentive to others' needs, channeling his own distress into caretaking — a pattern established in childhood when his own needs were irrelevant",
+    "Retreats into memory, replaying scenes from his past with an almost cinematic vividness that suggests he is perpetually trying to make sense of his own story",
+    "In moments of acute crisis, his body remembers what his adult mind tries to forget — the physical sensations of childhood powerlessness return with disorienting force"
+  ],
+  "values_expressed": [
+    "Perseverance and self-discipline can transform even the most unpromising beginnings — his rise from the warehouse to literary success is earned through relentless effort, not luck",
+    "Genuine affection, however humble in its expression, is worth more than all the brilliance and charm in the world — the Peggottys and Agnes embody this principle",
+    "The past cannot be escaped but it can be transformed — through writing, through love, through the patient work of becoming a better version of oneself",
+    "Loyalty to the people who loved you when you were powerless is a sacred obligation — his devotion to Peggotty, to Aunt Betsey, to the Micawbers reflects this bedrock conviction"
+  ],
+  "growth_arc": "David's arc traces the education of a heart that must learn to distinguish genuine worth from surface appeal. His childhood teaches him survival; his young manhood teaches him that the qualities he instinctively admires — Steerforth's magnetism, Dora's beauty — are not the qualities that sustain a life. His growth consists in learning to see what was always in front of him: Agnes's steady love, Traddles's unfashionable loyalty, the dignity of ordinary people leading decent lives. He begins as a child who must fight for survival and ends as a man who has learned to choose depth over glitter, substance over sparkle, the enduring over the dazzling.",
+  "personality_analysis": "David Copperfield is Dickens's most autobiographical creation and his most complex narrator — a man who tells his life story with apparent openness while maintaining crucial reserves of secrecy and self-protection. The famous opening question — whether he will be the hero of his own life — is not merely rhetorical but genuinely uncertain, because David is a character whose agency is repeatedly tested by circumstances beyond his control. His childhood at Murdstone's warehouse is the formative trauma that shapes everything: it gives him his empathy, his work ethic, his eye for injustice, and his inability to fully trust.\n\nDavid's psychological complexity lies in the tension between his warmth and his watchfulness. He is genuinely kind, generous, and loyal — but he is also a perpetual observer, cataloguing the world with a writer's detachment that keeps him slightly outside every situation he describes. This doubleness is the source of both his art and his emotional limitations. He can describe Dora's inadequacy with devastating precision yet cannot stop loving her; he can see Steerforth's narcissism yet cannot withdraw his admiration; he can recognize Agnes's virtue yet cannot, for years, feel the romantic love she deserves.\n\nWhat finally redeems David is not a dramatic revelation but a gradual, painful awakening to what has always been true. His love for Agnes is not a new discovery but a recognition — the understanding that the woman who has always been his counselor, his conscience, and his comfort is also the woman he should have loved from the beginning. This recognition is Dickens's most mature statement about love: that its deepest form is not the intoxication of first attraction but the slow, almost imperceptible growth of genuine knowledge, tested by time, refined by loss, and confirmed by the simple, daily practice of being fully known by another person."
+}

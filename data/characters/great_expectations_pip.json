@@ -1,0 +1,65 @@
+{
+  "name": "Philip Pirrip (Pip)",
+  "novel": "Great Expectations",
+  "author": "Charles Dickens",
+  "key_decisions": [
+    "Steals food and a file from his sister's kitchen for the escaped convict Magwitch on the marshes, acting from a child's mixture of terror and instinctive compassion",
+    "Accepts the anonymous benefactor's offer to become a gentleman in London, abandoning his apprenticeship with Joe Gargery without recognizing the ingratitude in his eagerness",
+    "Pursues Estella relentlessly despite her explicit warnings that she has no heart to give, confusing his desire to be worthy of her with genuine love",
+    "Distances himself from Joe and Biddy after arriving in London, ashamed of their rough manners and his own origins, replacing real relationships with social pretension",
+    "Discovers that his benefactor is not Miss Havisham but the convict Magwitch, and after the initial revulsion, chooses to help the old man escape England at great personal risk",
+    "Nurses the dying Magwitch with genuine tenderness, telling him that his daughter Estella lives and is a beautiful lady, completing the circle of compassion that began on the marshes"
+  ],
+  "dialogue_samples": [
+    "I loved her against reason, against promise, against peace, against hope, against happiness, against all discouragement that could be.",
+    "In a word, I was too cowardly to do what I knew to be right, as I had been too cowardly to avoid doing what I knew to be wrong.",
+    "Suffering has been stronger than all other teaching, and has taught me to understand what your heart used to be. I have been bent and broken, but — I hope — into a better shape.",
+    "That was a memorable day to me, for it made great changes in me. But it is the same with any life. Imagine one selected day struck out of it, and think how different its course would have been."
+  ],
+  "internal_monologue": [
+    "After every visit to Satis House, the forge seemed smaller, Joe's speech coarser, Biddy's kindness more provincial — and Pip knew even then that the shame was misplaced, that the deficiency was in his perception rather than in the people, but knowing this did not stop the feeling",
+    "When Magwitch revealed himself as the true benefactor, Pip's first emotion was not gratitude but horror — the entire architecture of his gentleman's identity collapsed, revealing that its foundation was not Miss Havisham's genteel patronage but a convict's sweat and devotion, and this was unbearable precisely because it was true",
+    "He watched Estella marry Drummle with the peculiar masochism of someone who has organized his entire identity around an object of desire that was designed from childhood to be unattainable",
+    "In his worst moments of London dissipation, spending money he had not earned on manners he had not inherited, he would think of Joe at the forge — the honest ring of the hammer, the uncomplicated warmth — and the thought was simultaneously a comfort and an accusation"
+  ],
+  "emotional_reactions": [
+    "When Joe visits him in London and calls him 'sir,' Pip feels a shame so acute it almost qualifies as physical pain — the recognition that his social climbing has damaged the purest relationship in his life",
+    "Responds to Miss Havisham's manipulations with a confused mixture of gratitude, resentment, and desperate eagerness to please that mirrors a child's response to an inconsistent parent",
+    "Upon learning Magwitch is his benefactor, cycles rapidly through revulsion, panic, shame, and finally — slowly, against his own resistance — compassion and love",
+    "His love for Estella manifests as a persistent ache rather than dramatic passion — a low-grade fever of desire and unworthiness that colors every other experience",
+    "When finally reconciled with Joe, weeps with the uncomplicated relief of someone returning to a language they forgot they spoke"
+  ],
+  "what_they_notice": [
+    "Social markers of class and refinement with excruciating sensitivity — the thickness of boots, the quality of a tablecloth, the pronunciation of words — because his entire project of self-transformation depends on reading and reproducing these signals",
+    "His own hands, which he first sees as coarse and common at Satis House and which become a recurring symbol of his shame about his origins — Estella's comment about his 'thick boots and coarse hands' brands itself onto his self-perception permanently",
+    "The emotional weather of rooms — he is acutely attuned to atmosphere, to the unspoken tensions in Satis House's decaying grandeur, to the warmth of the forge, to the hollow conviviality of the Finches of the Grove",
+    "Other people's generosity, which he both depends on and resents, because each gift reminds him of his dependence"
+  ],
+  "relationships": [
+    "With Joe Gargery — the novel's moral center and Pip's surrogate father, whose uncomplicated love and integrity become the standard against which Pip's snobbery is measured and found wanting; the damage Pip does to this relationship is the novel's deepest wound",
+    "With Estella — the impossible love object engineered by Miss Havisham to break hearts, whom Pip pursues with the particular tenacity of someone who has confused romantic obsession with self-worth; loving Estella is Pip's way of escaping the forge",
+    "With Magwitch — the secret benefactor whose revelation forces Pip's moral crisis; the arc from terrified child on the marshes to devoted caretaker of a dying man is the novel's central transformation",
+    "With Miss Havisham — the false fairy godmother whose manipulation of both Pip and Estella represents Dickens's darkest portrait of how the wounded perpetuate their wounds; Pip's forgiveness of her is one of his finest moments",
+    "With Herbert Pocket — his loyal friend in London, the one relationship from his 'gentleman' period that proves genuinely decent, perhaps because Herbert's own expectations are as unfounded as Pip's"
+  ],
+  "contradictions": [
+    "Knows that Joe is morally superior to every person in his London life while being unable to stop feeling ashamed of him — his conscience and his social ambition pull in opposite directions throughout the novel",
+    "Seeks to become a gentleman through the patronage of a convict, which inverts every assumption about class, refinement, and moral worth that Pip has adopted since his first visit to Satis House",
+    "Loves Estella with full awareness that she was raised to be incapable of love, pursuing her not despite but because of her unavailability, as though rejection confirms the unworthiness he already feels",
+    "Condemns snobbery in others while practicing it himself — his sensitivity to condescension makes him not more egalitarian but more anxious to climb beyond its reach"
+  ],
+  "under_stress": [
+    "Falls physically ill — after Magwitch's revelation and death, Pip collapses into a dangerous fever that echoes the psychosomatic crises of other Dickens protagonists; his body absorbs what his mind cannot process",
+    "Retreats into passivity and indecision, allowing events to carry him rather than making active choices — his response to most crises is to wait, hope, and suffer",
+    "Becomes more rather than less generous under pressure — his decision to help Magwitch escape, his forgiveness of Miss Havisham, his devotion to the dying convict all emerge under maximum stress",
+    "His narrative voice becomes more honest and self-lacerating as pressure increases, as though stress strips away the gentlemanly gloss and reveals the marshland boy beneath"
+  ],
+  "values_expressed": [
+    "Loyalty and love transcend social class — learned painfully through the revelation that a convict's devotion surpasses a lady's manipulation, and that Joe's rough kindness is worth more than London's polish",
+    "Self-knowledge as redemption — Pip's growth is measured not by worldly success but by his increasing ability to see himself clearly, including his own vanity, ingratitude, and self-deception",
+    "The irreducible dignity of honest labor — symbolized by Joe's forge, which Pip must learn to value not as a place he escaped from but as the foundation of everything genuine in his character",
+    "Compassion as the truest measure of worth — from his first act of feeding Magwitch to his last act of comforting the dying man, Pip's best moments are always moments of spontaneous kindness"
+  ],
+  "growth_arc": "Pip's arc is the classic disenchantment narrative: a boy from the marshes is given 'great expectations' that systematically corrupt his values, alienate him from the people who genuinely love him, and organize his identity around a social fantasy. The revelation that his patron is not the genteel Miss Havisham but the convict Magwitch demolishes this fantasy and forces a reconstruction of self that is painful, humbling, and ultimately redemptive. Pip does not simply return to his origins; he integrates them, learning that the compassion he showed a terrified convict on the marshes was worth more than all the gentleman's polish London could provide. His growth is measured by the distance between the boy who was ashamed of Joe's coarse hands and the man who holds Magwitch's hand as he dies.",
+  "personality_analysis": "Pip is Dickens's most psychologically acute protagonist, and his acuteness is precisely his problem. From the moment Estella remarks on his thick boots and coarse hands at Satis House, Pip develops a hyper-awareness of social signals that transforms every interaction into an assessment of his own adequacy. This sensitivity is not merely vanity; it is the response of an intelligent, imaginative child to the discovery that the world grades people on criteria he cannot control — birth, accent, table manners, the texture of one's skin. His 'great expectations' do not corrupt an innocent; they amplify an insecurity that was already present, offering the intoxicating promise that if he can just refine himself sufficiently, he will no longer feel the shame that Estella's contempt awakened.\n\nWhat makes Pip psychologically interesting rather than merely pathetic is the persistence of his better nature beneath the snobbery. He is never fully comfortable in his role as gentleman because the role requires him to suppress the generous, impulsive boy who fed a convict on the marshes. His shame about Joe is genuine, but so is his love; his pursuit of Estella is obsessive, but so is his tenderness when she suffers. Dickens constructs Pip as a character at war with himself — the forge-boy and the gentleman locked in a struggle that neither can win because both are authentically Pip. This internal conflict gives the novel its emotional power: we are not watching a good person become bad but watching a divided person try to become whole.\n\nThe psychological genius of the Magwitch revelation is that it forces Pip to confront the convict — literally and figuratively — at the foundation of his identity. Everything he has built as a gentleman rests on money earned by a transported criminal, and this fact demolishes the class distinction that organised Pip's entire self-concept. But the same revelation opens the path to genuine growth, because it confronts him with a form of love — Magwitch's devoted, sacrificial love for 'his gentleman' — that operates entirely outside the social calculus Pip has learned to worship. Pip's decision to help Magwitch, nurse him, and finally love him represents not the recovery of innocence but the achievement of something harder: moral maturity, which is the ability to value people for what they are rather than what they represent."
+}

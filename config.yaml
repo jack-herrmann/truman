@@ -1,13 +1,20 @@
 # Intuition — AI Personality Engine Configuration
 
+# ── LLM Provider ──────────────────────────────────────────────────────
+# Free-tier options (no credit card required):
+#   provider: gemini   →  GEMINI_API_KEY  (1500 req/day on gemini-2.0-flash)
+#   provider: groq     →  GROQ_API_KEY    (OpenAI-compatible, llama-3.3-70b)
+# Paid options:
+#   provider: anthropic → ANTHROPIC_API_KEY
+#   provider: openai    → OPENAI_API_KEY
 llm:
-  provider: anthropic
-  model: claude-sonnet-4-20250514
+  provider: gemini
+  model: gemini-2.0-flash
   max_tokens: 4096
   temperature: 0.7
 
 embeddings:
-  provider: local  # "openai" for production, "local" for dev
+  provider: local  # "openai" for production, "local" for dev (free, no API key)
   model: text-embedding-3-small
   dimension: 512
 

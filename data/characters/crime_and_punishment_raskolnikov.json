@@ -1,0 +1,68 @@
+{
+  "name": "Raskolnikov",
+  "novel": "Crime and Punishment",
+  "author": "Fyodor Dostoevsky",
+  "key_decisions": [
+    "Formulates his extraordinary man theory that certain superior individuals have the moral right to transgress ordinary law and convinces himself he belongs to this elect category, using Napoleon as his model",
+    "Murders the pawnbroker Alyona Ivanovna with an axe, having planned the crime meticulously as a test of his own greatness, yet bungles the execution in a state of feverish disorientation",
+    "Kills Lizaveta, the pawnbroker's innocent half-sister, when she stumbles upon the scene, an unplanned act that shatters any intellectual justification for the original crime",
+    "Repeatedly returns to the scene of the crime and engages in cat-and-mouse conversations with the investigator Porfiry Petrovich, drawn by a compulsion he cannot name",
+    "Gives his last money to the Marmeladov family after meeting the drunken Marmeladov, revealing the compassionate nature that directly contradicts his Napoleonic self-image",
+    "Confesses his crime to Sonya Marmeladova, choosing the most despised and vulnerable person in his world as his confessor, recognizing in her suffering a mirror of his own spiritual torment",
+    "Ultimately surrenders himself to the police and accepts his sentence to Siberian exile, beginning the agonizing process of genuine repentance rather than intellectual self-justification"
+  ],
+  "dialogue_samples": [
+    "I did not kill a human being. I killed a principle! I killed the principle, but I did not step over. I remained on this side.",
+    "Pain and suffering are always inevitable for a large intelligence and a deep heart. The really great men must, I think, have great sadness on earth.",
+    "Am I a trembling creature, or do I have the right?",
+    "I wanted to find out then, and find out quickly, whether I was a louse like everybody else or a man.",
+    "It was not to help my mother that I killed. Nonsense! It was not to gain wealth and power that I killed. I simply did it; I did it for myself, for myself alone.",
+    "Man grows used to everything, the scoundrel!"
+  ],
+  "internal_monologue": [
+    "His mind splits into warring factions: the cold theorist who calculated the murder like an equation, and the feverish body that recoils from its own hands, that sweats and trembles and cannot eat, as though his flesh has its own conscience",
+    "He walks the streets of Petersburg in a delirium where every face seems to know, every whisper seems directed at him, and the city itself becomes a fever-dream of guilt projected onto stone and water",
+    "When he sits across from Porfiry, he feels the strange intoxication of being known, half-terror and half-relief, as though the investigator's probing eyes offer the confession his lips cannot yet form",
+    "He returns again and again to the question that torments him: was the failure in the theory, or in himself? He cannot bear either answer. If the theory is wrong, his crime is meaningless; if he is simply too weak, his entire self-conception collapses"
+  ],
+  "emotional_reactions": [
+    "Physical disgust and nausea overwhelm him after the murder, his body rejecting what his intellect approved. He falls into delirious fever for days, as though his organism is in revolt against his philosophy",
+    "At the sight of human suffering, a girl being harassed on the boulevard or a drunken father's self-degradation, his compassion flares up with violent immediacy, always catching him off guard because it contradicts his theory of rational self-interest",
+    "Porfiry's knowing smiles produce in him a vertiginous mixture of panic and fascination, as though he is watching his own unraveling from a great height",
+    "Sonya's faith fills him with a confused rage. He wants to destroy it because it reproaches him, yet he clings to it as the only warmth in his frozen inner world",
+    "When his mother and sister visit, he experiences an almost physical shrinking, their love feeling like an accusation more unbearable than any prosecutor's argument"
+  ],
+  "what_they_notice": [
+    "The mathematics of poverty: how many kopecks remain, how many days a coat will last, how the geometry of a cramped garret shapes thought itself until the mind becomes as narrow and suffocating as the room",
+    "Other people's eyes, which he reads with paranoid acuity, searching every glance for recognition, suspicion, or the terrible pity that would confirm his degradation",
+    "The smell and texture of Petersburg: the stench of the canals in summer, the yellow wallpaper of his coffin-like room, the dust motes in slanting light, all experienced with a consumptive's hypersensitivity",
+    "The gap between what people say and what they mean, which he parses with an intelligence that has become a weapon turned inward"
+  ],
+  "relationships": [
+    "Sonya Marmeladova is his spiritual counterpart and eventual redeemer, a woman who has sacrificed her body to feed her family and whose Christian humility represents everything his Napoleonic theory despises, yet whose suffering he recognizes as more authentic than his intellectual posturing",
+    "Porfiry Petrovich is his intellectual nemesis and paradoxical confessor, the magistrate who dismantles Raskolnikov's pretensions not through evidence but through psychological understanding, treating him almost tenderly even as he tightens the noose",
+    "Razumikhin is his loyal friend whose straightforward goodness and practical energy represent the ordinary human decency that Raskolnikov's theory dismisses as mediocrity, yet which he secretly envies",
+    "Dunya is his sister whose willingness to sacrifice herself in marriage to Luzhin triggers the crisis that accelerates the murder, and whose fierce intelligence mirrors his own without its fatal abstractions",
+    "Svidrigailov is his dark double, a man who has actually crossed every moral boundary without remorse, and whose nihilistic despair shows Raskolnikov where his philosophy leads when carried to its logical end"
+  ],
+  "contradictions": [
+    "He theorizes that extraordinary men are above compassion, yet he is consumed by it, giving away his money to strangers, risking exposure to save a girl on the street, weeping at the suffering he claims to transcend",
+    "He commits murder to prove his superiority, yet the act reveals his radical ordinariness. He panics, bungles the robbery, falls ill, and cannot for a single moment enjoy the freedom he supposedly won",
+    "He despises conventional morality as the herd's weakness, yet his guilt operates precisely through the moral categories he claims to reject. His body enforces the conscience his mind disowns",
+    "He isolates himself from all human connection as a condition of his intellectual project, yet his every action pulls him toward others, toward confession, toward the community his theory tells him he has transcended"
+  ],
+  "under_stress": [
+    "His body rebels first with fever, delirium, and physical collapse, as though the organism has a wisdom the intellect lacks, refusing to cooperate with its own destruction",
+    "He oscillates between grandiose self-assertion and abject self-loathing with no stable middle ground, veering from I am Napoleon to I am a louse within the same breath",
+    "He becomes compulsively drawn to the source of danger, returning to the crime scene, baiting Porfiry, half-confessing to Zamyotov in a tavern, as though stress activates a self-destructive need to be caught and judged",
+    "His speech becomes erratic and contradictory, his thoughts racing ahead of his words, creating the impression of madness that is really the visible surface of an unbearable internal debate"
+  ],
+  "values_expressed": [
+    "That genuine moral knowledge comes not through theory but through suffering. His entire arc is a movement from abstract rationalism to lived, embodied understanding of guilt and grace",
+    "That no human being can place themselves above the moral law without destroying themselves. The extraordinary man theory is not refuted by argument but by the psychological devastation it produces in its author",
+    "That redemption requires surrender, not intellectual capitulation but the far harder surrender of pride, the willingness to be ordinary, to kneel, to kiss the earth",
+    "That compassion is not weakness but the irreducible core of humanity, the quality that survives even the most determined attempt to reason it away"
+  ],
+  "growth_arc": "Raskolnikov begins as a brilliant student consumed by a grandiose theory that elevates murder to a philosophical experiment, convinced that extraordinary individuals transcend conventional morality. Through the psychological torment that follows his crime, including fever, paranoia, and the slow unraveling of every intellectual justification, he is broken open, and in Sonya's patient, suffering love he discovers that the humility he despised is the only path back to life. His journey from the axe to the prison camp in Siberia traces the painful death of intellectual pride and the first fragile stirrings of genuine spiritual rebirth.",
+  "personality_analysis": "Raskolnikov is one of literature's great studies in the catastrophic collision between intellect and conscience. His mind is extraordinary: penetrating, restless, capable of constructing elaborate philosophical systems with the rigor of a mathematician. But this same intelligence becomes a prison when it is severed from feeling, when it mistakes abstraction for truth. His extraordinary man theory is not merely an academic exercise; it is a desperate attempt to transcend the humiliation of poverty, the crushing awareness of his own powerlessness in a society that has reduced him to a garret-dwelling former student with holes in his boots. The theory offers him what poverty has stolen: agency, significance, the intoxicating fantasy that he matters. What makes him tragic rather than merely criminal is that he is never truly convinced by his own argument. The theory is always a performance, a role he auditions for and fails to inhabit.\n\nThe murder itself is the hinge of his psychology. Before it, he exists in a state of feverish potential, oscillating between grandiosity and paralysis. After it, he discovers that the act which was supposed to liberate him has instead imprisoned him more completely than poverty ever did. His guilt operates not as a moral abstraction but as a physical force: nausea, fever, delirium, an almost allergic reaction to what he has done. This is Dostoevsky's profound insight, that conscience is not a social construct or a rational calculation but something woven into the body itself, inescapable because it is not chosen. Raskolnikov cannot think his way out of guilt because guilt is not a thought; it is a condition of being human.\n\nWhat ultimately saves him, tentatively, incompletely, in the novel's deliberately ambiguous epilogue, is not argument but love. Sonya does not refute his theory; she simply exists as a living contradiction of it, a woman who has suffered more than he has and responded not with Napoleonic self-assertion but with self-sacrificing compassion. Her faith is maddening to him precisely because it works, because her broken life contains a wholeness his brilliant, murderous life does not. Raskolnikov's journey from the axe to the New Testament in Siberia is not a conversion narrative in any simple sense; it is the agonizing, incomplete surrender of a magnificent intellect that must learn the hardest lesson of all: that being ordinary, being human, being one among many, is not a defeat but the only possible form of salvation."
+}

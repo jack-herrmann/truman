@@ -88,11 +88,14 @@ class BrightDataFetcher(PageFetcher):
                 f"Bright Data scrape failed for {url}"
             )
 
+        elapsed = getattr(result, "elapsed_ms", 0)
+        if callable(elapsed):
+            elapsed = elapsed()
         logger.debug(
             "Bright Data scraped %s (cost=$%.4f, %dms)",
             url,
             getattr(result, "cost", 0.0),
-            getattr(result, "elapsed_ms", lambda: 0)(),
+            elapsed,
         )
 
         return self._extract_text(result, url)

@@ -1,0 +1,95 @@
+{
+  "id": "test123",
+  "name": "TestPerson",
+  "z": [
+    0.1,
+    0.2,
+    -0.1,
+    0.0
+  ],
+  "sigma": [
+    0.4,
+    0.4,
+    0.4,
+    0.4
+  ],
+  "values": [
+    {
+      "name": "Honesty",
+      "importance": 0.9,
+      "stability": 0.8,
+      "description": "Truth matters.",
+      "conflicts_with": []
+    }
+  ],
+  "cognitive_style": {
+    "abstraction_level": 0.2,
+    "decision_mode": -0.3,
+    "attention_priorities": [
+      "safety",
+      "others"
+    ],
+    "complexity_preference": 0.5,
+    "thinking_tempo": 0.4,
+    "inner_monologue_style": "questioning"
+  },
+  "emotional_baseline": {
+    "default_valence": 0.1,
+    "emotional_range": 0.6,
+    "reactivity": 0.5,
+    "recovery_speed": 0.5,
+    "dominant_emotions": [
+      "calm",
+      "curious",
+      "wary"
+    ],
+    "emotional_depth": 0.6
+  },
+  "social_style": {
+    "energy_direction": -0.2,
+    "trust_default": 0.5,
+    "conflict_approach": "mediate",
+    "attachment_style": "secure",
+    "dominance": 0.4,
+    "empathy_type": "both"
+  },
+  "perceptual_style": {
+    "primary_lens": "Practical outcomes",
+    "notices_first": [
+      "risk",
+      "other people"
+    ],
+    "blind_spots": [
+      "subtle cues"
+    ],
+    "aesthetic_sensibility": "understated"
+  },
+  "fault_lines": [
+    {
+      "tension": [
+        "duty",
+        "desire"
+      ],
+      "activation_context": "moral choice",
+      "typical_resolution": "compromise",
+      "stress_escalation": "withdraw"
+    }
+  ],
+  "stress_profile": {
+    "threshold": 0.6,
+    "primary_response": "freeze",
+    "behavioral_shifts": {
+      "trust": "suspicious"
+    },
+    "breaking_point": "shutdown"
+  },
+  "behavioral_summary": "A cautious, thoughtful person.",
+  "origin_sketch": "Grew up in a strict environment.",
+  "state": {
+    "current_emotion": "neutral",
+    "stress_level": 0.1,
+    "arousal": 0.3,
+    "recent_events": [],
+    "current_context": ""
+  }
+}

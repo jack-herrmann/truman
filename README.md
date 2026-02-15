@@ -158,9 +158,11 @@ Tests cover core models (kernel, traces, memory), latent space (VAE save/load, P
 ## Demos
 
 - **`demo.py`** — Main demo: create 3 personalities, run them through 3 situations, compare behavior side-by-side.
-- **`person_in_rain.py`** — Visual demo (pygame): 4 personalities draw “person in the rain”.
+- **`draw_yourself.py`** — Visual demo (pygame): each personality draws a self-portrait from their kernel (no LLM at draw time). `person_in_rain.py` is a launcher that runs this.
 - **`demos/conversation.py`** — Interactive chat with one personality. Load a saved kernel or create one.
 - **`demos/interpolate.py`** — Interpolate between two saved personalities; optionally decode the midpoint with the LLM.
+
+**Steps to get a drawing from `draw_yourself.py`:** (1) `pip install -r requirements.txt`. (2) Either set an API key (e.g. `export GEMINI_API_KEY=...`) and run `python draw_yourself.py --save out.png`, or use a saved kernel: `python draw_yourself.py --kernel path/to/kernel.json --save out.png`. (3) With `--no-window`, the script saves to the path you give or to `draw_yourself_output.png`. See the docstring at the top of `draw_yourself.py` for full steps.
 
 Example:
 
@@ -173,6 +175,10 @@ python3 demos/conversation.py
 
 # Interpolate between two saved kernels
 python3 demos/interpolate.py kernel_a.json kernel_b.json --decode-mid
+
+# Draw yourself: save a self-portrait (needs API key to create 4, or use --kernel to skip LLM)
+python3 draw_yourself.py --save my_drawing.png
+python3 draw_yourself.py --kernel data/checkpoints/test_kernel.json --no-window --save out.png
 ```
 
 ## Project Structure

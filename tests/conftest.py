@@ -84,7 +84,7 @@ def sample_kernel():
         stress_profile=StressProfile(
             threshold=0.6,
             primary_response="freeze",
-            behavioral_shifts={"trust": "suspicious"},
+            behavioral_shifts=["trust becomes suspicious"],
             breaking_point="shutdown",
         ),
         behavioral_summary="A cautious, thoughtful person.",

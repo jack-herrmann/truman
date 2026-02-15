@@ -71,7 +71,7 @@ class StressProfile(BaseModel):
     """How this personality responds under increasing pressure."""
     threshold: float = Field(ge=0.0, le=1.0, description="How much pressure before visible change")
     primary_response: str = Field(description="fight | flight | freeze | fawn")
-    behavioral_shifts: dict[str, str] = Field(description="dimension to how it changes under stress")
+    behavioral_shifts: list[str] = Field(description="How behavior shifts under stress, e.g. 'trust becomes suspicious'")
     breaking_point: str = Field(description="What they look like at maximum stress")
 
 

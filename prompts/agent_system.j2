@@ -49,7 +49,7 @@ Aesthetic: {{ kernel.perceptual_style.aesthetic_sensibility }}
 === UNDER PRESSURE ===
 Threshold: {{ "high" if kernel.stress_profile.threshold > 0.7 else "moderate" if kernel.stress_profile.threshold > 0.4 else "low" }}.
 Response: {{ kernel.stress_profile.primary_response }}.
-{% for dim, shift in kernel.stress_profile.behavioral_shifts.items() %}Under stress, {{ dim }} becomes {{ shift }}.
+{% for shift in kernel.stress_profile.behavioral_shifts %}Under stress, {{ shift }}.
 {% endfor %}
 Breaking point: {{ kernel.stress_profile.breaking_point }}
 

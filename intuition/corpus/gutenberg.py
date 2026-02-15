@@ -6,7 +6,7 @@ import logging
 import re
 from pathlib import Path
 
-import httpx
+from intuition.corpus.fetcher import HttpxFetcher, PageFetcher
 
 logger = logging.getLogger(__name__)
 
@@ -45,9 +45,20 @@ _MIRRORS = [
 
 
 class GutenbergCorpus:
-    def __init__(self, data_dir: str = "data/novels") -> None:
+    """Download and cache novels from Project Gutenberg.
+
+    Uses a pluggable PageFetcher (default: HttpxFetcher). Pass BrightDataFetcher
+    for proxy/anti-bot when needed.
+    """
+
+    def __init__(
+        self,
+        data_dir: str = "data/novels",
+        fetcher: PageFetcher | None = None,
+    ) -> None:
         self.data_dir = Path(data_dir)
         self.data_dir.mkdir(parents=True, exist_ok=True)
+        self._fetcher = fetcher or HttpxFetcher(follow_redirects=True, timeout=60)
 
     async def download_novel(self, key: str) -> Path:
         if key not in NOVELS:
@@ -57,18 +68,19 @@ class GutenbergCorpus:
         if dest.exists():
             return dest
         novel_id = meta["id"]
-        async with httpx.AsyncClient(follow_redirects=True, timeout=60) as client:
-            for pattern in _MIRRORS:
-                url = pattern.format(id=novel_id)
-                try:
-                    resp = await client.get(url)
-                    if resp.status_code == 200:
-                        text = self._clean(resp.text)
-                        dest.write_text(text, encoding="utf-8")
-                        return dest
-                except httpx.HTTPError:
-                    continue
-        raise RuntimeError(f"Failed to download {key}")
+        last_error: Exception | None = None
+        for pattern in _MIRRORS:
+            url = pattern.format(id=novel_id)
+            try:
+                text = await self._fetcher.fetch(url, timeout=60)
+                if text:
+                    dest.write_text(self._clean(text), encoding="utf-8")
+                    return dest
+            except Exception as e:
+                last_error = e
+                logger.debug("Fetch %s failed: %s", url, e)
+                continue
+        raise RuntimeError(f"Failed to download {key}") from last_error
 
     async def download_all(self) -> dict[str, Path]:
         results = {}

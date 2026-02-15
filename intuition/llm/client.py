@@ -21,6 +21,7 @@ class LLMClient:
       - "openai"     (paid — requires OPENAI_API_KEY)
       - "gemini"     (free tier — requires GEMINI_API_KEY)
       - "groq"       (free tier — requires GROQ_API_KEY, OpenAI-compatible)
+      - "nemo"       (NVIDIA NeMo / NIM — NIM_PROXY_BASE_URL or nemo.base_url in config)
     """
 
     # Default models per provider
@@ -29,14 +30,17 @@ class LLMClient:
         "openai": "gpt-4o",
         "gemini": "gemini-2.0-flash",
         "groq": "llama-3.3-70b-versatile",
+        "nemo": "meta/llama-3.1-8b-instruct",
     }
 
     def __init__(self, provider: str = "anthropic", model: str | None = None,
-                 max_tokens: int = 4096, temperature: float = 0.7, **kwargs: Any) -> None:
+                 max_tokens: int = 4096, temperature: float = 0.7, *,
+                 base_url: str | None = None, **kwargs: Any) -> None:
         self.provider = provider
         self.model = model or self.DEFAULT_MODELS.get(provider, "claude-sonnet-4-20250514")
         self.max_tokens = max_tokens
         self.temperature = temperature
+        self._nemo_base_url = base_url  # for provider "nemo": NIM proxy URL (optional override)
         self._client: Any = None
 
     # ------------------------------------------------------------------
@@ -63,6 +67,21 @@ class LLMClient:
                 base_url="https://api.groq.com/openai/v1",
                 api_key=os.environ.get("GROQ_API_KEY", ""),
             )
+        elif self.provider == "nemo":
+            # NVIDIA NeMo / NIM — OpenAI-compatible chat completions API
+            import openai
+            base_url = (
+                (self._nemo_base_url or "").strip().rstrip("/")
+                or os.environ.get("NIM_PROXY_BASE_URL", "").strip().rstrip("/")
+            )
+            if not base_url:
+                raise ValueError(
+                    "NeMo provider requires NIM_PROXY_BASE_URL or config llm.base_url"
+                )
+            if not base_url.endswith("/v1"):
+                base_url = f"{base_url}/v1"
+            api_key = os.environ.get("NIM_API_KEY", "nvidia")
+            self._client = openai.AsyncOpenAI(base_url=base_url, api_key=api_key)
         else:
             raise ValueError(f"Unsupported LLM provider: {self.provider}")
 

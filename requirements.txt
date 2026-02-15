@@ -15,8 +15,11 @@ anthropic>=0.25
 openai>=1.0
 google-genai>=1.0
 
-# HTTP (for Gutenberg downloads)
+# HTTP (for Gutenberg downloads and NeMo NIM client)
 httpx>=0.24
+
+# Scraping (optional — for Bright Data proxy/anti-bot when needed)
+brightdata-sdk>=2.0
 
 # CLI formatting
 rich>=13.0

@@ -1,14 +1,12 @@
 #!/usr/bin/env python3
-"""Intuition Demo — create distinct personalities and compare their behavior.
+"""Intuition demo — create distinct agentic personalities and compare their behavior.
 
 Creates 3 personalities from the latent space (or directly via LLM if no VAE
 checkpoint exists), puts them through identical situations, and prints a
-side-by-side comparison showing how different z-vectors produce meaningfully
-different perception, emotion, and action.
+side-by-side comparison: different z → meaningfully different perception,
+emotion, and action.
 
-Works with any configured LLM provider.  Free options:
-    export GEMINI_API_KEY="..."   # default (config.yaml → provider: gemini)
-    export GROQ_API_KEY="..."     # edit config.yaml → provider: groq
+Uses the LLM provider set in config.yaml (e.g. GEMINI_API_KEY, NIM_PROXY_BASE_URL for NeMo).
 """
 
 from __future__ import annotations
@@ -280,7 +278,7 @@ async def main():
         format="%(levelname)s %(name)s: %(message)s",
     )
 
-    print(_header("Intuition — AI Personality Engine Demo"))
+    print(_header("Intuition — Agentic Personalities Demo"))
     print("\n  This demo creates 3 distinct personalities and puts them")
     print("  through 3 identical situations to show that different")
     print("  latent vectors produce meaningfully different behavior.\n")

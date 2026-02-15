@@ -1,4 +1,4 @@
-# Intuition — AI Personality Engine Dependencies
+# Intuition — Agentic Personalities (dependencies)
 
 # Core
 pydantic>=2.0

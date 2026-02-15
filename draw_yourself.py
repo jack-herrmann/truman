@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Draw yourself — each personality draws a self-portrait (no LLM at draw time).
+"""Draw yourself — agentic personalities draw a self-portrait (no LLM at draw time).
 
-The drawing is driven entirely by the PersonalityKernel: we map kernel fields
-→ drawing spec (position, size, posture, mood, environment) → renderer draws.
-So the personalities we train are the ones "doing" the drawing.
+Inspired by projective drawing tasks used in personality development research:
+we let each personality "draw themselves" from their kernel. The drawing is
+driven entirely by the PersonalityKernel (mean z, variance σ, stress profile,
+emotional baseline, etc.): kernel → spec → renderer. So the personalities we
+train are the ones doing the drawing.
 
 ================================================================================
 STEPS TO RUN (so you actually get a drawing)

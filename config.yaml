@@ -1,15 +1,11 @@
-# Intuition — AI Personality Engine Configuration
+# Intuition — Agentic Personalities configuration
+# LLM used for: prior (character extraction), PersonalityDecoder, Truman Show sandbox.
+# Set provider below and the matching env var (e.g. GEMINI_API_KEY, NIM_PROXY_BASE_URL).
 
 # ── LLM Provider ──────────────────────────────────────────────────────
-# Free-tier options (no credit card required):
-#   provider: gemini   →  GEMINI_API_KEY  (1500 req/day on gemini-2.0-flash)
-#   provider: groq     →  GROQ_API_KEY    (OpenAI-compatible, llama-3.3-70b)
-# NVIDIA NeMo / NIM (self-hosted or NGC):
-#   provider: nemo     →  NIM_PROXY_BASE_URL (e.g. http://localhost:8000), optional NIM_API_KEY
-#   or set llm.base_url / llm.nemo.base_url instead of env
-# Paid options:
-#   provider: anthropic → ANTHROPIC_API_KEY
-#   provider: openai    → OPENAI_API_KEY
+# Free: gemini (GEMINI_API_KEY), groq (GROQ_API_KEY)
+# NVIDIA NeMo / NIM (extraction + Truman Show): provider: nemo, NIM_PROXY_BASE_URL or llm.base_url
+# Paid: anthropic (ANTHROPIC_API_KEY), openai (OPENAI_API_KEY)
 llm:
   provider: gemini
   model: gemini-2.0-flash
@@ -47,7 +43,7 @@ evaluation:
 corpus:
   novels_dir: data/novels
   characters_dir: data/characters
-  # Use Bright Data for downloads (set USE_BRIGHTDATA=1 or script --brightdata; needs BRIGHTDATA_API_TOKEN)
+  # Optional: Bright Data for scraping (USE_BRIGHTDATA=1 or --brightdata; BRIGHTDATA_API_TOKEN)
   # use_brightdata: false
 
 paths:

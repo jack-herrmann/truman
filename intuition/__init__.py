@@ -1,6 +1,6 @@
-"""Intuition — AI Personality Engine.
+"""Intuition — Agentic Personalities.
 
-Create truly individual and coherent artificial personalities.
+Create individual and consistent artificial personalities (latent space + prior + Truman Show).
 
 Usage:
     from intuition import create_personality, create_agent

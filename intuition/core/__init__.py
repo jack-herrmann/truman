@@ -1,4 +1,4 @@
-"""Core data structures for the Intuition engine."""
+"""Core data structures for Intuition (PersonalityKernel, traces, memory)."""
 
 from intuition.core.kernel import (
     PersonalityKernel,

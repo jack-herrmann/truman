@@ -12,7 +12,7 @@ Open **[`demos/draw_yourself_presaved.html`](demos/draw_yourself_presaved.html)*
 
 You'll see four personalities — each drawing a self-portrait in real time. The Stoic draws a plain, centered figure with no embellishment. The Anxious one produces a small, hunched form surrounded by scribbled-out false starts. The Romantic fills the canvas with flowing lines, flowers, and stars. The Pragmatist sketches a neatly dressed figure with glasses and polished shoes.
 
-**This is not a mockup.** These drawings are a materialization of real output from the personality pipeline. Each of the four agents was created through the full process — latent vector sampling, LLM-based personality generation, kernel-to-drawing-spec mapping — and the resulting drawing commands were transcribed into the HTML file so you can see exactly what the system produces without spending a single API call. The personalities, their traits, and the drawing decisions are all real; the HTML is just a recording.
+**This is not a mockup.** These drawings are a materialization of real output from the personality pipeline. Each of the four agents was created through the full process and the resulting drawing commands were transcribed into the HTML file so you can see exactly what the system produces without spending a single API call. The personalities, their traits, and the drawing decisions are all real; the HTML is just a "recording".
 
 ---
 

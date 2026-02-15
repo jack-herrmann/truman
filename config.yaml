@@ -43,8 +43,12 @@ evaluation:
 corpus:
   novels_dir: data/novels
   characters_dir: data/characters
-  # Optional: Bright Data for scraping (USE_BRIGHTDATA=1 or --brightdata; BRIGHTDATA_API_TOKEN)
-  # use_brightdata: false
+  # ── Bright Data (optional) ──────────────────────────────────────────
+  # Uses Bright Data SDK for proxy/anti-bot scraping when downloading novels.
+  # To enable: uncomment below, OR set USE_BRIGHTDATA=1, OR pass --brightdata.
+  # Auth: export BRIGHTDATA_API_TOKEN="your-token"
+  # Get a token: https://brightdata.com → Dashboard → API tokens
+  # use_brightdata: true
 
 paths:
   novels: data/novels

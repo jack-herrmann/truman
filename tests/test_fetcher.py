@@ -24,19 +24,34 @@ async def test_httpx_fetcher_raises_on_404():
         await fetcher.fetch("https://www.gutenberg.org/nonexistent-page-404-not-found")
 
 
-def test_bright_data_extract_text_static():
-    """_extract_text normalizes result.data to str."""
+# --- BrightDataFetcher._extract_text (static, no SDK needed) ---
+
+def test_bright_data_extract_text_plain_string():
+    """_extract_text returns data directly when it's a plain string."""
     class R:
         data = "hello world"
     assert BrightDataFetcher._extract_text(R(), "http://x") == "hello world"
 
-    class R2:
-        data = {"content": "page body"}
-    assert BrightDataFetcher._extract_text(R2(), "http://x") == "page body"
 
-    class R3:
+def test_bright_data_extract_text_dict_content_key():
+    """_extract_text pulls 'content' from a dict result."""
+    class R:
+        data = {"content": "page body"}
+    assert BrightDataFetcher._extract_text(R(), "http://x") == "page body"
+
+
+def test_bright_data_extract_text_dict_html_key():
+    """_extract_text pulls 'html' from a dict result."""
+    class R:
         data = {"html": "<p>hi</p>"}
-    assert BrightDataFetcher._extract_text(R3(), "http://x") == "<p>hi</p>"
+    assert BrightDataFetcher._extract_text(R(), "http://x") == "<p>hi</p>"
+
+
+def test_bright_data_extract_text_list_result():
+    """_extract_text handles list results (batch API returns)."""
+    class R:
+        data = ["page content here"]
+    assert BrightDataFetcher._extract_text(R(), "http://x") == "page content here"
 
 
 def test_bright_data_extract_text_no_usable_text_raises():
@@ -46,6 +61,20 @@ def test_bright_data_extract_text_no_usable_text_raises():
     with pytest.raises(ValueError, match="no usable text"):
         BrightDataFetcher._extract_text(R(), "http://x")
 
+
+def test_bright_data_constructor_accepts_token():
+    """BrightDataFetcher can be created with an explicit token."""
+    fetcher = BrightDataFetcher(token="test-token-123")
+    assert fetcher._token == "test-token-123"
+
+
+def test_bright_data_constructor_no_token():
+    """BrightDataFetcher works without token (reads BRIGHTDATA_API_TOKEN env var)."""
+    fetcher = BrightDataFetcher()
+    assert fetcher._token is None
+
+
+# --- GutenbergCorpus with mock fetcher ---
 
 @pytest.mark.asyncio
 async def test_gutenberg_uses_fetcher(temp_dir):

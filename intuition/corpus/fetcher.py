@@ -3,6 +3,12 @@
 Supports:
   - HttpxFetcher: direct HTTP via httpx (default, no proxy).
   - BrightDataFetcher: Bright Data SDK for sites that need proxies/anti-bot.
+
+Usage:
+    fetcher = HttpxFetcher()                      # default, free, no proxy
+    fetcher = BrightDataFetcher()                  # uses BRIGHTDATA_API_TOKEN env var
+    fetcher = BrightDataFetcher(token="sk-...")     # explicit token
+    text = await fetcher.fetch("https://example.com")
 """
 
 from __future__ import annotations
@@ -42,59 +48,94 @@ class HttpxFetcher(PageFetcher):
 
 
 class BrightDataFetcher(PageFetcher):
-    """Fetch pages via Bright Data (proxies, anti-bot). Use for harder-to-scrape sites.
+    """Fetch pages via the Bright Data Python SDK (generic web scraper).
 
-    Requires BRIGHTDATA_API_TOKEN. Use async with BrightDataClient per request.
+    Requires:
+        pip install brightdata-sdk
+
+    Auth (pick one):
+        - Set env var BRIGHTDATA_API_TOKEN (SDK reads it automatically)
+        - Pass token= to constructor
+
+    SDK docs: https://docs.brightdata.com/api-reference/SDK
     """
 
-    def __init__(
-        self,
-        *,
-        timeout: float = 120,
-        poll_interval: int = 5,
-        poll_timeout: int = 180,
-        use_async_mode: bool = True,
-    ) -> None:
-        self._timeout = timeout
-        self._poll_interval = poll_interval
-        self._poll_timeout = poll_timeout
-        self._use_async_mode = use_async_mode
+    def __init__(self, *, token: str | None = None) -> None:
+        self._token = token
 
     async def fetch(self, url: str, *, timeout: float | None = None) -> str:
         try:
             from brightdata import BrightDataClient
         except ImportError as e:
             raise ImportError(
-                "Bright Data fetcher requires: pip install brightdata-sdk"
+                "Bright Data fetcher requires the SDK: pip install brightdata-sdk\n"
+                "Then set BRIGHTDATA_API_TOKEN env var or pass token= to BrightDataFetcher."
             ) from e
-        # SDK requires async with per use; no client reuse outside context
-        async with BrightDataClient() as client:
-            if self._use_async_mode:
-                result = await client.scrape_url(
-                    url,
-                    mode="async",
-                    poll_interval=self._poll_interval,
-                    poll_timeout=self._poll_timeout,
-                )
-            else:
-                result = await client.scrape_url(url)
+
+        kwargs: dict[str, Any] = {}
+        if self._token:
+            kwargs["token"] = self._token
+
+        # The SDK async API: client.scrape.generic.url_async([urls])
+        # Returns a list of result objects with .success, .data, .cost
+        async with BrightDataClient(**kwargs) as client:
+            results = await client.scrape.generic.url_async([url])
+
+        result = results[0] if isinstance(results, list) else results
+
+        if not getattr(result, "success", True):
+            raise RuntimeError(
+                f"Bright Data scrape failed for {url}"
+            )
+
+        logger.debug(
+            "Bright Data scraped %s (cost=$%.4f, %dms)",
+            url,
+            getattr(result, "cost", 0.0),
+            getattr(result, "elapsed_ms", lambda: 0)(),
+        )
+
         return self._extract_text(result, url)
 
     @staticmethod
     def _extract_text(result: Any, url: str) -> str:
-        """Normalize result.data to str (may be HTML string or dict)."""
+        """Extract text content from a Bright Data scrape result.
+
+        result.data is typically a string (page HTML/text) for generic scraping.
+        We handle dict/list formats defensively in case the API returns structured data.
+        """
         data = getattr(result, "data", result)
+
+        # Most common: data is the page content as a string
         if isinstance(data, str):
             return data
+
+        # If data is a list (batch result), take the first item
+        if isinstance(data, list) and data:
+            item = data[0]
+            if isinstance(item, str):
+                return item
+            if isinstance(item, dict):
+                return _extract_from_dict(item, url)
+            return str(item)
+
+        # If data is a dict with known content keys
         if isinstance(data, dict):
-            for key in ("content", "html", "body", "text"):
-                v = data.get(key)
-                if isinstance(v, str):
-                    return v
-            for v in data.values():
-                if isinstance(v, str) and len(v) > 100:
-                    return v
-            raise ValueError(
-                f"Bright Data result for {url} had no usable text (keys: {list(data.keys())})"
-            )
+            return _extract_from_dict(data, url)
+
         return str(data)
+
+
+def _extract_from_dict(data: dict, url: str) -> str:
+    """Pull text from a dict result, trying common content keys."""
+    for key in ("content", "html", "body", "text"):
+        v = data.get(key)
+        if isinstance(v, str) and v:
+            return v
+    # Fallback: any large string value
+    for v in data.values():
+        if isinstance(v, str) and len(v) > 100:
+            return v
+    raise ValueError(
+        f"Bright Data result for {url} had no usable text (keys: {list(data.keys())})"
+    )

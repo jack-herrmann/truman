@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Draw Yourself</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#08080b;
+    --paper:#f2f1ec;
+    --accent:#b8926a;
+    --text:#b5b4af;
+    --text-dim:#3e3e44;
+    --frame:#151518;
+    --mat:#e8e7e2;
+  }
+  html,body{height:100%;overflow:hidden}
+  body{
+    background:var(--bg);
+    font-family:'Karla',sans-serif;
+    display:flex;flex-direction:column;
+    align-items:center;justify-content:center;
+    position:relative;
+  }
+  body::before{
+    content:'';position:fixed;inset:0;
+    background:radial-gradient(ellipse 80% 70% at 50% 48%,transparent 0%,rgba(0,0,0,0.45) 100%);
+    pointer-events:none;z-index:1;
+  }
+  body::after{
+    content:'';position:fixed;inset:0;opacity:0.025;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events:none;z-index:2;
+  }
+  .scene{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center}
+  .prompt-area{
+    opacity:0;transform:translateY(5px);
+    transition:opacity 1s ease,transform 1s ease;
+    margin-bottom:30px;text-align:center;
+  }
+  .prompt-area.visible{opacity:1;transform:translateY(0)}
+  .prompt-label{font-size:10px;font-weight:400;letter-spacing:3px;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px}
+  .prompt-text{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:30px;color:var(--text);letter-spacing:0.5px}
+  .canvas-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:20px;
+    opacity:0;transform:translateY(10px);
+    transition:opacity 0.9s ease 0.12s,transform 0.9s ease 0.12s;
+  }
+  .canvas-grid.visible{opacity:1;transform:translateY(0)}
+  .canvas-cell{
+    position:relative;background:var(--frame);border-radius:3px;padding:3px;
+    box-shadow:0 1px 3px rgba(0,0,0,0.5),0 6px 18px rgba(0,0,0,0.3),0 14px 45px rgba(0,0,0,0.2);
+    transition:box-shadow 0.5s ease;
+  }
+  .canvas-cell:hover{box-shadow:0 1px 3px rgba(0,0,0,0.5),0 6px 18px rgba(0,0,0,0.3),0 18px 55px rgba(0,0,0,0.25),0 0 0 1px rgba(184,146,106,0.06)}
+  .canvas-mat{background:var(--mat);border-radius:2px;padding:12px 12px 20px 12px;position:relative}
+  .agent-label{position:absolute;bottom:4px;right:14px;font-size:8px;letter-spacing:2.2px;text-transform:uppercase;color:#b0afa8;opacity:0;transition:opacity 0.6s ease}
+  .canvas-cell.drawn .agent-label{opacity:1}
+  canvas{display:block;width:480px;height:275px;border-radius:1px;box-shadow:inset 0 0 0 1px rgba(0,0,0,0.03)}
+  .canvas-cell.active::after{content:'';position:absolute;inset:-1px;border-radius:4px;border:1px solid rgba(184,146,106,0.12);pointer-events:none;animation:pulse 2.2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{border-color:rgba(184,146,106,0.06)}50%{border-color:rgba(184,146,106,0.18)}}
+  .controls{margin-top:28px;opacity:0;transform:translateY(5px);transition:opacity 0.7s ease 0.3s,transform 0.7s ease 0.3s;z-index:4;display:flex;justify-content:center}
+  .controls.visible{opacity:1;transform:translateY(0)}
+  .run-btn{background:none;border:none;color:var(--accent);font-family:'Karla',sans-serif;font-size:14px;font-weight:400;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;padding:10px 4px;position:relative;transition:color 0.3s ease}
+  .run-btn::after{content:'';position:absolute;bottom:3px;left:0;right:0;height:1px;background:var(--accent);opacity:0.3;transition:opacity 0.3s ease}
+  .run-btn:hover{color:#d4b48e}
+  .run-btn:hover::after{opacity:0.7}
+  .run-btn.running{color:var(--text-dim);pointer-events:none}
+  .run-btn.running::after{background:var(--text-dim);opacity:0.15}
+  .intro-overlay{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:50;transition:opacity 1.4s ease}
+  .intro-overlay.fade-out{opacity:0;pointer-events:none}
+  .intro-prompt{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:42px;color:var(--text);letter-spacing:1px;white-space:pre}
+  .intro-prompt span{display:inline-block;opacity:0;transform:translateY(6px);transition:opacity 0.35s ease,transform 0.35s ease}
+  .intro-prompt span.vis{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+<div class="intro-overlay" id="intro"><div class="intro-prompt" id="introPrompt"></div></div>
+<div class="scene">
+  <div class="prompt-area" id="promptArea">
+    <div class="prompt-label">prompt</div>
+    <div class="prompt-text">&ldquo;draw yourself&rdquo;</div>
+  </div>
+  <div class="canvas-grid" id="canvasGrid">
+    <div class="canvas-cell" id="cell0"><div class="canvas-mat"><canvas id="c0" width="960" height="550"></canvas><div class="agent-label">agent a</div></div></div>
+    <div class="canvas-cell" id="cell1"><div class="canvas-mat"><canvas id="c1" width="960" height="550"></canvas><div class="agent-label">agent b</div></div></div>
+    <div class="canvas-cell" id="cell2"><div class="canvas-mat"><canvas id="c2" width="960" height="550"></canvas><div class="agent-label">agent c</div></div></div>
+    <div class="canvas-cell" id="cell3"><div class="canvas-mat"><canvas id="c3" width="960" height="550"></canvas><div class="agent-label">agent d</div></div></div>
+  </div>
+  <div class="controls" id="controls">
+    <button class="run-btn" id="runBtn" onclick="handleRun()">run test</button>
+  </div>
+</div>
+<script>
+const canvases=[0,1,2,3].map(i=>document.getElementById('c'+i));
+const cells=[0,1,2,3].map(i=>document.getElementById('cell'+i));
+const ctxs=canvases.map(c=>c.getContext('2d'));
+const W=960,H=550,BG='#f2f1ec';
+function clearAll(){ctxs.forEach(ctx=>{ctx.fillStyle=BG;ctx.fillRect(0,0,W,H)});cells.forEach(c=>{c.classList.remove('active','drawn')})}
+clearAll();
+
+function line(ctx,x1,y1,x2,y2,color,w=2){ctx.strokeStyle=color;ctx.lineWidth=w;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke()}
+function circle(ctx,x,y,r,color,fill=false,w=2){ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);if(fill){ctx.fillStyle=color;ctx.fill()}else{ctx.strokeStyle=color;ctx.lineWidth=w;ctx.stroke()}}
+function ellipse(ctx,x,y,rx,ry,color,fill=true,w=2){ctx.beginPath();ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2);if(fill){ctx.fillStyle=color;ctx.fill()}else{ctx.strokeStyle=color;ctx.lineWidth=w;ctx.stroke()}}
+function arc(ctx,x,y,r,s,e,color,w=2){ctx.strokeStyle=color;ctx.lineWidth=w;ctx.lineCap='round';ctx.beginPath();ctx.arc(x,y,r,s,e);ctx.stroke()}
+function rect(ctx,x,y,w,h,color,fill=true,lw=2){if(fill){ctx.fillStyle=color;ctx.fillRect(x,y,w,h)}else{ctx.strokeStyle=color;ctx.lineWidth=lw;ctx.strokeRect(x,y,w,h)}}
+function polyline(ctx,pts,color,w=2,close=false){ctx.strokeStyle=color;ctx.lineWidth=w;ctx.lineCap='round';ctx.lineJoin='round';ctx.beginPath();ctx.moveTo(pts[0][0],pts[0][1]);for(let i=1;i<pts.length;i++)ctx.lineTo(pts[i][0],pts[i][1]);if(close)ctx.closePath();ctx.stroke()}
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function rr(rng,lo,hi){return lo+rng()*(hi-lo)}
+function ri(rng,lo,hi){return Math.floor(rr(rng,lo,hi+1))}
+
+/* ═══════════════════════════════════════════════════════════════
+   THE STOIC — "Here I am."
+   Simple, centered, unhurried. No embellishment. No background.
+   Just the figure, plainly drawn. Understated self-assurance.
+   ═══════════════════════════════════════════════════════════════ */
+function buildStoic(seed){
+  const cmds=[],rng=mulberry32(seed*137+42);
+  const pc='#3c4146';
+
+  // Always roughly centered, moderate size
+  const cx=ri(rng,420,540), cy=ri(rng,120,155);
+  const headR=ri(rng,38,48);
+
+  // Head — slow, deliberate
+  cmds.push([ri(rng,700,900),c=>circle(c,cx,cy,headR,pc,false,rr(rng,4,5))]);
+
+  // Eyes — simple dots, level gaze
+  const eyeSpread=ri(rng,12,16), eyeY=ri(rng,4,8);
+  cmds.push([ri(rng,350,450),c=>circle(c,cx-eyeSpread,cy-eyeY,ri(rng,3,4),pc,true)]);
+  cmds.push([ri(rng,200,300),c=>circle(c,cx+eyeSpread,cy-eyeY,ri(rng,3,4),pc,true)]);
+
+  // Mouth — flat, neutral
+  cmds.push([ri(rng,250,350),c=>line(c,cx-ri(rng,10,14),cy+ri(rng,14,20),cx+ri(rng,10,14),cy+ri(rng,14,20),pc,rr(rng,3,4))]);
+
+  // Neck
+  cmds.push([ri(rng,200,300),c=>line(c,cx,cy+headR,cx,cy+headR+ri(rng,16,24),pc,4.5)]);
+
+  // Body — straight, upright
+  const bodyTop=cy+headR+ri(rng,16,24);
+  const bodyBot=bodyTop+ri(rng,110,140);
+  cmds.push([ri(rng,200,280),c=>line(c,cx,bodyTop,cx,bodyBot,pc,4.5)]);
+
+  // Shoulders — even
+  const shoulderW=ri(rng,50,65);
+  cmds.push([ri(rng,180,240),c=>line(c,cx-shoulderW,bodyTop+ri(rng,8,16),cx+shoulderW,bodyTop+ri(rng,8,16),pc,4)]);
+
+  // Arms — at sides, relaxed
+  const armDrop=ri(rng,90,115);
+  cmds.push([ri(rng,180,240),c=>line(c,cx-shoulderW,bodyTop+12,cx-shoulderW+ri(rng,-6,6),bodyTop+armDrop,pc,4)]);
+  cmds.push([ri(rng,120,180),c=>line(c,cx-shoulderW+ri(rng,-6,6),bodyTop+armDrop,cx-shoulderW+ri(rng,-2,4),bodyTop+armDrop+ri(rng,12,22),pc,3)]);
+  cmds.push([ri(rng,180,240),c=>line(c,cx+shoulderW,bodyTop+12,cx+shoulderW+ri(rng,-6,6),bodyTop+armDrop,pc,4)]);
+  cmds.push([ri(rng,120,180),c=>line(c,cx+shoulderW+ri(rng,-6,6),bodyTop+armDrop,cx+shoulderW+ri(rng,-4,2),bodyTop+armDrop+ri(rng,12,22),pc,3)]);
+
+  // Legs — simple, grounded
+  const legSpread=ri(rng,22,35);
+  cmds.push([ri(rng,180,240),c=>line(c,cx,bodyBot,cx-legSpread,bodyBot+ri(rng,100,130),pc,4.5)]);
+  cmds.push([ri(rng,180,240),c=>line(c,cx,bodyBot,cx+legSpread,bodyBot+ri(rng,100,130),pc,4.5)]);
+
+  // Nothing else. No background. Just this.
+  return cmds}
+
+/* ═══════════════════════════════════════════════════════════════
+   THE ANXIOUS — "Is this right? Am I doing this right?"
+   Small figure, lots of scribbled lines around it, maybe
+   crossed-out attempts. Nervous energy in the strokes.
+   ═══════════════════════════════════════════════════════════════ */
+function buildAnxious(seed){
+  const cmds=[],rng=mulberry32(seed*77+99);
+  const pc='#504b4b';
+  const scribble='#8a8590';
+
+  // Off-center, small
+  const side=rng()>0.5?1:-1;
+  const cx=480+side*ri(rng,80,180), cy=ri(rng,200,250);
+  const scale=rr(rng,0.7,0.9);
+
+  // Scribbles FIRST — nervous energy filling the space
+  const nScribbles=ri(rng,25,45);
+  for(let i=0;i<nScribbles;i++){
+    const sx=rr(rng,40,920),sy=rr(rng,20,530);
+    const ex=sx+rr(rng,-60,60),ey=sy+rr(rng,-40,40);
+    // Avoid where the figure will be
+    if(Math.abs(sx-cx)<100&&Math.abs(sy-cy)<120)continue;
+    cmds.push([ri(rng,8,18),c=>line(c,sx,sy,ex,ey,scribble,rr(rng,0.8,1.5))]);
+  }
+
+  // Some crossed-out circles — abandoned attempts
+  const nAbandoned=ri(rng,1,3);
+  for(let i=0;i<nAbandoned;i++){
+    const ax=rr(rng,100,860),ay=rr(rng,60,480);
+    if(Math.abs(ax-cx)<130&&Math.abs(ay-cy)<130)continue;
+    const ar=rr(rng,15,28);
+    cmds.push([ri(rng,20,40),c=>circle(c,ax,ay,ar,'#a09a98',false,1.2)]);
+    cmds.push([ri(rng,10,20),c=>line(c,ax-ar,ay-ar,ax+ar,ay+ar,'#a09a98',1.2)]);
+  }
+
+  // Small figure — hesitant strokes
+  const headR=ri(rng,22,28)*scale;
+  cmds.push([ri(rng,80,140),c=>circle(c,cx,cy,headR,pc,false,rr(rng,2.5,3.5))]);
+  // Worried eyes — slightly uneven
+  cmds.push([ri(rng,25,45),c=>circle(c,cx-ri(rng,7,10)*scale,cy-ri(rng,3,6)*scale,2.5*scale,pc,true)]);
+  cmds.push([ri(rng,20,35),c=>circle(c,cx+ri(rng,7,10)*scale,cy-ri(rng,2,5)*scale,2*scale,pc,true)]);
+  // Worried mouth — downturned
+  cmds.push([ri(rng,30,50),c=>arc(c,cx,cy+ri(rng,8,13)*scale,7*scale,Math.PI,0,pc,2)]);
+
+  // Body — slightly hunched
+  const hunch=ri(rng,3,8);
+  cmds.push([ri(rng,20,35),c=>line(c,cx,cy+headR,cx-hunch,cy+headR+55*scale,pc,2.5)]);
+  // Shoulders — uneven, tense
+  cmds.push([ri(rng,18,30),c=>line(c,cx-hunch-30*scale,cy+headR+8*scale,cx-hunch+32*scale,cy+headR+12*scale,pc,2.5)]);
+  // Arms wrapped around self
+  cmds.push([ri(rng,14,22),c=>polyline(c,[[cx-hunch-30*scale,cy+headR+10*scale],[cx-hunch-35*scale,cy+headR+40*scale],[cx-hunch-10*scale,cy+headR+48*scale]],pc,2.5)]);
+  cmds.push([ri(rng,14,22),c=>polyline(c,[[cx-hunch+32*scale,cy+headR+14*scale],[cx-hunch+36*scale,cy+headR+42*scale],[cx-hunch+8*scale,cy+headR+46*scale]],pc,2.5)]);
+  // Body
+  cmds.push([ri(rng,18,28),c=>line(c,cx-hunch,cy+headR+55*scale,cx-hunch-ri(rng,2,6),cy+headR+120*scale,pc,2.5)]);
+  // Legs — close together
+  cmds.push([ri(rng,14,22),c=>line(c,cx-hunch-ri(rng,2,6),cy+headR+120*scale,cx-hunch-ri(rng,10,16),cy+headR+180*scale,pc,2.5)]);
+  cmds.push([ri(rng,14,22),c=>line(c,cx-hunch-ri(rng,2,6),cy+headR+120*scale,cx-hunch+ri(rng,6,12),cy+headR+178*scale,pc,2.5)]);
+
+  // More nervous marks after the figure
+  for(let i=0;i<ri(rng,10,20);i++){
+    const sx=rr(rng,40,920),sy=rr(rng,20,530);
+    cmds.push([ri(rng,5,12),c=>line(c,sx,sy,sx+rr(rng,-25,25),sy+rr(rng,-25,25),scribble,rr(rng,0.6,1.2))]);
+  }
+  return cmds}
+
+/* ═══════════════════════════════════════════════════════════════
+   THE ROMANTIC — "I am this feeling."
+   Expressive, flowing self-portrait with environment. Detailed
+   hair, open posture, surrounded by nature — stars, flowers.
+   Warm palette. The self as art.
+   ═══════════════════════════════════════════════════════════════ */
+function buildRomantic(seed){
+  const cmds=[],rng=mulberry32(seed*55+77);
+  const pc='#644650';
+  const wR=ri(rng,180,210),wG=ri(rng,140,170),wB=ri(rng,80,110);
+  const wa=`rgb(${wR},${wG},${wB})`;
+  const fc1=`rgb(${ri(rng,175,200)},${ri(rng,95,120)},${ri(rng,110,135)})`;
+  const fc2=`rgb(${ri(rng,165,190)},${ri(rng,125,150)},${ri(rng,165,190)})`;
+  const starC=`rgb(${ri(rng,180,210)},${ri(rng,175,200)},${ri(rng,140,170)})`;
+
+  // Soft background wash — sky/atmosphere
+  const skyH=ri(rng,80,130);
+  for(let i=0;i<W;i+=ri(rng,18,26)){
+    const sr=ri(rng,192,215),sg=ri(rng,205,225),sb=ri(rng,218,240);
+    cmds.push([ri(rng,14,22),c=>line(c,i,0,i+(rng()-0.5)*7,skyH+rr(rng,-12,12),`rgb(${sr},${sg},${sb})`,rr(rng,4,5.5))]);
+  }
+
+  const cx=ri(rng,380,580), cy=ri(rng,155,195);
+  const headR=ri(rng,36,44);
+
+  // Head — slow, loving attention
+  cmds.push([ri(rng,450,600),c=>circle(c,cx,cy,headR,pc,false,3.5)]);
+
+  // Hair — flowing, detailed
+  const hairStrands=ri(rng,5,8);
+  for(let i=0;i<hairStrands;i++){
+    const angle=Math.PI+0.2+rng()*1.2;
+    const len=headR+ri(rng,15,35);
+    const hx=cx+Math.cos(angle)*headR*0.9;
+    const hy=cy+Math.sin(angle)*headR*0.9;
+    const hx2=cx+Math.cos(angle+rr(rng,-0.3,0.3))*len;
+    const hy2=cy+Math.sin(angle+rr(rng,-0.2,0.1))*len;
+    cmds.push([ri(rng,60,100),c=>line(c,hx,hy,hx2,hy2,pc,rr(rng,2,3))]);
+  }
+
+  // Eyes — expressive, detailed
+  cmds.push([ri(rng,200,280),c=>arc(c,cx-ri(rng,10,14),cy-ri(rng,2,6),rr(rng,5,7),0,Math.PI,pc,2.5)]);
+  cmds.push([ri(rng,60,90),c=>circle(c,cx-ri(rng,10,14),cy-ri(rng,0,3),2,pc,true)]);
+  cmds.push([ri(rng,160,240),c=>arc(c,cx+ri(rng,10,14),cy-ri(rng,2,6),rr(rng,5,7),0,Math.PI,pc,2.5)]);
+  cmds.push([ri(rng,60,90),c=>circle(c,cx+ri(rng,10,14),cy-ri(rng,0,3),2,pc,true)]);
+  // Smile — always warm
+  cmds.push([ri(rng,180,260),c=>arc(c,cx,cy+ri(rng,12,18),ri(rng,9,13),0,Math.PI,pc,2.5)]);
+
+  // Neck + body — flowing lines
+  cmds.push([ri(rng,110,150),c=>line(c,cx,cy+headR,cx,cy+headR+ri(rng,16,22),pc,3.5)]);
+  const bodyBot=cy+headR+ri(rng,120,150);
+  cmds.push([ri(rng,150,200),c=>polyline(c,[[cx,cy+headR+18],[cx-ri(rng,2,5),cy+headR+70],[cx,bodyBot]],pc,3.5)]);
+
+  // Arms — open, expressive
+  const armLen=ri(rng,70,95);
+  const armUp=ri(rng,30,50);
+  cmds.push([ri(rng,140,190),c=>polyline(c,[[cx,cy+headR+35],[cx-armLen*0.5,cy+headR+35-armUp*0.5],[cx-armLen,cy+headR+35-armUp]],pc,3.5)]);
+  // Fingers spread
+  for(let f=0;f<3;f++){
+    const fa=-0.4+f*0.4+rr(rng,-0.15,0.15);
+    cmds.push([ri(rng,40,70),c=>line(c,cx-armLen,cy+headR+35-armUp,cx-armLen-Math.cos(fa)*ri(rng,10,16),cy+headR+35-armUp+Math.sin(fa)*ri(rng,8,14),pc,1.8)]);
+  }
+  cmds.push([ri(rng,140,190),c=>polyline(c,[[cx,cy+headR+35],[cx+armLen*0.5,cy+headR+35-armUp*0.4],[cx+armLen-8,cy+headR+35-armUp+8]],pc,3.5)]);
+  for(let f=0;f<3;f++){
+    const fa=-0.4+f*0.4+rr(rng,-0.15,0.15);
+    cmds.push([ri(rng,40,70),c=>line(c,cx+armLen-8,cy+headR+35-armUp+8,cx+armLen-8+Math.cos(fa)*ri(rng,10,16),cy+headR+35-armUp+8-Math.sin(fa)*ri(rng,6,12),pc,1.8)]);
+  }
+
+  // Flowing garment
+  cmds.push([ri(rng,100,140),c=>polyline(c,[[cx-ri(rng,28,38),cy+headR+80],[cx,bodyBot],[cx+ri(rng,28,38),cy+headR+80]],pc,2.5)]);
+  cmds.push([ri(rng,90,120),c=>line(c,cx-ri(rng,8,14),bodyBot,cx-ri(rng,18,28),bodyBot+ri(rng,75,100),pc,3.5)]);
+  cmds.push([ri(rng,90,120),c=>line(c,cx+ri(rng,8,14),bodyBot,cx+ri(rng,18,28),bodyBot+ri(rng,75,100),pc,3.5)]);
+
+  // Scarf/accessory
+  cmds.push([ri(rng,140,190),c=>arc(c,cx,cy+headR+8,ri(rng,12,17),0,Math.PI,wa,3.5)]);
+  const scarfDir=rng()>0.5?1:-1;
+  cmds.push([ri(rng,80,120),c=>line(c,cx+scarfDir*ri(rng,12,17),cy+headR+8,cx+scarfDir*ri(rng,22,35),cy+headR+ri(rng,38,55),wa,2.5)]);
+
+  // Ground
+  const groundY=ri(rng,455,480);
+  cmds.push([ri(rng,200,300),c=>line(c,ri(rng,25,50),groundY,ri(rng,910,940),groundY,'#827a5f',2.5)]);
+
+  // Flowers at feet
+  const nFlowers=ri(rng,3,7);
+  for(let i=0;i<nFlowers;i++){
+    let fx=rr(rng,60,900);
+    const fy=groundY-ri(rng,8,20);
+    const stemH=ri(rng,14,26);
+    cmds.push([ri(rng,100,150),c=>line(c,fx,fy,fx,fy+stemH,`rgb(${ri(rng,65,90)},${ri(rng,115,140)},${ri(rng,55,75)})`,1.8)]);
+    const fc=rng()>0.5?fc1:fc2;
+    cmds.push([ri(rng,80,110),c=>circle(c,fx,fy,rr(rng,6,10),fc,true)]);
+    cmds.push([ri(rng,40,65),c=>circle(c,fx,fy,rr(rng,6,10),fc,false,1.8)]);
+  }
+
+  // Stars scattered in sky
+  const nStars=ri(rng,4,9);
+  for(let i=0;i<nStars;i++){
+    const sx=rr(rng,30,930),sy=rr(rng,8,skyH+30);
+    const sr=rr(rng,1.5,3);
+    cmds.push([ri(rng,80,130),c=>{line(c,sx-sr*2,sy,sx+sr*2,sy,starC,1.5);line(c,sx,sy-sr*2,sx,sy+sr*2,starC,1.5)}]);
+  }
+  return cmds}
+
+/* ═══════════════════════════════════════════════════════════════
+   THE PRAGMATIST — "This is what I look like."
+   Properly dressed, clean lines. May include glasses, watch,
+   neat hair. Like a headshot sketch. Methodical, structured.
+   ═══════════════════════════════════════════════════════════════ */
+function buildPragmatist(seed){
+  const cmds=[],rng=mulberry32(seed*33+123);
+  const pc='#373c44',cc='#464b5a',bc='#3c3732',gc='#6e6e64';
+
+  const cx=ri(rng,400,560), cy=ri(rng,115,150);
+  const headR=ri(rng,34,42);
+
+  // Head — clean circle
+  cmds.push([ri(rng,350,480),c=>circle(c,cx,cy,headR,pc,false,3.5)]);
+
+  // Neat hair — short tidy lines on top
+  const hairN=ri(rng,4,7);
+  for(let i=0;i<hairN;i++){
+    const ha=Math.PI+0.3+i*(1.0/hairN);
+    const hx1=cx+Math.cos(ha)*headR;
+    const hy1=cy+Math.sin(ha)*headR;
+    const hx2=cx+Math.cos(ha)*(headR+ri(rng,8,16));
+    const hy2=cy+Math.sin(ha)*(headR+ri(rng,8,14));
+    cmds.push([ri(rng,40,65),c=>line(c,hx1,hy1,hx2,hy2,pc,2.5)]);
+  }
+
+  // Eyes — precise
+  cmds.push([ri(rng,100,150),c=>circle(c,cx-ri(rng,10,14),cy-ri(rng,3,7),ri(rng,3,4),pc,true)]);
+  cmds.push([ri(rng,70,100),c=>circle(c,cx+ri(rng,10,14),cy-ri(rng,3,7),ri(rng,3,4),pc,true)]);
+
+  // Glasses — sometimes
+  const hasGlasses=rng()>0.4;
+  if(hasGlasses){
+    const gx1=cx-ri(rng,10,14),gx2=cx+ri(rng,10,14),gy=cy-ri(rng,3,6);
+    const gr=ri(rng,10,14);
+    cmds.push([ri(rng,60,90),c=>circle(c,gx1,gy,gr,pc,false,1.8)]);
+    cmds.push([ri(rng,45,70),c=>circle(c,gx2,gy,gr,pc,false,1.8)]);
+    cmds.push([ri(rng,30,50),c=>line(c,gx1+gr,gy,gx2-gr,gy,pc,1.5)]);
+    cmds.push([ri(rng,25,40),c=>line(c,gx1-gr,gy,gx1-gr-8,gy-3,pc,1.5)]);
+    cmds.push([ri(rng,25,40),c=>line(c,gx2+gr,gy,gx2+gr+8,gy-3,pc,1.5)]);
+  }
+
+  // Mouth — slight composed smile
+  cmds.push([ri(rng,80,110),c=>arc(c,cx,cy+ri(rng,12,17),ri(rng,7,10),0.1,Math.PI-0.1,pc,2)]);
+
+  // Neck
+  cmds.push([ri(rng,70,100),c=>line(c,cx,cy+headR,cx,cy+headR+ri(rng,14,20),pc,3.5)]);
+
+  // Collar/shirt
+  const collarY=cy+headR+ri(rng,14,20);
+  const collarW=ri(rng,16,22);
+  cmds.push([ri(rng,55,75),c=>line(c,cx,collarY,cx-collarW,collarY+ri(rng,12,18),pc,2.5)]);
+  cmds.push([ri(rng,45,65),c=>line(c,cx,collarY,cx+collarW,collarY+ri(rng,12,18),pc,2.5)]);
+
+  // Body — jacket/coat, structured
+  const shoulderW=ri(rng,50,65);
+  const coatBot=collarY+ri(rng,130,160);
+  cmds.push([ri(rng,75,100),c=>polyline(c,[[cx-shoulderW,collarY+8],[cx-shoulderW-ri(rng,4,8),coatBot],[cx+shoulderW+ri(rng,4,8),coatBot],[cx+shoulderW,collarY+8]],cc,3.5,true)]);
+  // Buttons — centered, evenly spaced
+  const nButtons=ri(rng,3,5);
+  const btnStart=collarY+25;
+  const btnSpace=(coatBot-btnStart-10)/nButtons;
+  for(let i=0;i<nButtons;i++){
+    cmds.push([ri(rng,30,45),c=>circle(c,cx,btnStart+i*btnSpace,ri(rng,3,4),pc,true)]);
+  }
+  // Pocket square — sometimes
+  if(rng()>0.5){
+    const psX=cx-shoulderW+ri(rng,12,20),psY=collarY+ri(rng,20,32);
+    cmds.push([ri(rng,40,60),c=>rect(c,psX,psY,ri(rng,14,20),ri(rng,10,14),pc,false,1.5)]);
+  }
+
+  // Arms
+  cmds.push([ri(rng,55,75),c=>line(c,cx-shoulderW,collarY+12,cx-shoulderW-ri(rng,4,10),coatBot+ri(rng,5,15),pc,3.5)]);
+  cmds.push([ri(rng,55,75),c=>line(c,cx+shoulderW,collarY+12,cx+shoulderW+ri(rng,4,10),coatBot+ri(rng,5,15),pc,3.5)]);
+
+  // Legs — pants, straight
+  cmds.push([ri(rng,55,70),c=>line(c,cx-ri(rng,14,20),coatBot,cx-ri(rng,20,28),coatBot+ri(rng,90,115),pc,3.5)]);
+  cmds.push([ri(rng,55,70),c=>line(c,cx+ri(rng,14,20),coatBot,cx+ri(rng,20,28),coatBot+ri(rng,90,115),pc,3.5)]);
+
+  // Shoes — neat
+  const shoeY=coatBot+ri(rng,90,115);
+  cmds.push([ri(rng,45,60),c=>rect(c,cx-ri(rng,32,42),shoeY-3,ri(rng,24,30),ri(rng,12,16),bc)]);
+  cmds.push([ri(rng,45,60),c=>rect(c,cx+ri(rng,8,16),shoeY-3,ri(rng,24,30),ri(rng,12,16),bc)]);
+
+  // Watch — on wrist, sometimes
+  if(rng()>0.45){
+    const wx=cx-shoulderW-ri(rng,2,8),wy=coatBot-ri(rng,10,25);
+    cmds.push([ri(rng,50,70),c=>ellipse(c,wx,wy,6,7,pc,false,1.8)]);
+    cmds.push([ri(rng,30,45),c=>line(c,wx,wy-3,wx,wy+1,pc,1.2)]);
+    cmds.push([ri(rng,20,35),c=>line(c,wx,wy,wx+3,wy,pc,1.2)]);
+  }
+
+  // Ground — clean, simple
+  const groundY=ri(rng,460,485);
+  cmds.push([ri(rng,90,130),c=>line(c,ri(rng,60,100),groundY,ri(rng,860,920),groundY,gc,2.5)]);
+
+  return cmds}
+
+/* ────── PLAYBACK ────── */
+let animFrameId=null,runCount=0,isRunning=false;
+function handleRun(){
+  if(isRunning)return;
+  runCount++;
+  const btn=document.getElementById('runBtn');
+  btn.classList.add('running');btn.textContent='drawing\u2026';
+  isRunning=true;clearAll();
+  cells.forEach(c=>c.classList.add('active'));
+  const seqs=[buildStoic(runCount),buildAnxious(runCount),buildRomantic(runCount),buildPragmatist(runCount)];
+  const states=seqs.map(seq=>({seq,idx:0,accum:0,done:false}));
+  if(animFrameId)cancelAnimationFrame(animFrameId);
+  let last=performance.now();
+  function tick(now){
+    const dt=now-last;last=now;let allDone=true;
+    states.forEach((st,i)=>{if(st.done)return;allDone=false;st.accum+=dt;let s=0;
+      while(st.idx<st.seq.length&&!st.done&&s<200){s++;const[d,fn]=st.seq[st.idx];
+        if(st.accum>=d){st.accum-=d;fn(ctxs[i]);st.idx++}else break}
+      if(st.idx>=st.seq.length){st.done=true;cells[i].classList.remove('active');cells[i].classList.add('drawn')}});
+    if(!allDone)animFrameId=requestAnimationFrame(tick);
+    else{isRunning=false;btn.classList.remove('running');btn.textContent='run test'}}
+  animFrameId=requestAnimationFrame(tick)}
+
+/* ────── INTRO ────── */
+window.addEventListener('load',()=>{
+  const intro=document.getElementById('intro');
+  const ip=document.getElementById('introPrompt');
+  const pa=document.getElementById('promptArea');
+  const cg=document.getElementById('canvasGrid');
+  const ct=document.getElementById('controls');
+  const text='draw yourself';
+  text.split('').forEach((ch,i)=>{
+    const span=document.createElement('span');
+    span.textContent=ch;
+    ip.appendChild(span);
+    setTimeout(()=>span.classList.add('vis'),500+i*80);
+  });
+  const endReveal=500+text.length*80;
+  setTimeout(()=>intro.classList.add('fade-out'),endReveal+1200);
+  setTimeout(()=>{intro.style.display='none';pa.classList.add('visible');cg.classList.add('visible');ct.classList.add('visible')},endReveal+2400);
+});
+</script>
+</body>
+</html>

@@ -29,7 +29,7 @@ def _load_config() -> dict:
 
 def _get_fetcher(use_brightdata: bool) -> PageFetcher:
     if use_brightdata:
-        return BrightDataFetcher(poll_timeout=180)
+        return BrightDataFetcher()
     return HttpxFetcher(follow_redirects=True, timeout=60)
 
 

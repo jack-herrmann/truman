@@ -48,7 +48,36 @@ import logging
 import sys
 from pathlib import Path
 
+import re
+
 from pydantic import BaseModel, Field
+
+
+def _friendly_error(exc: Exception) -> str:
+    """Extract a short, readable message from verbose LLM API exceptions."""
+    raw = str(exc)
+
+    # Rate-limit / quota errors
+    if "429" in raw or "RESOURCE_EXHAUSTED" in raw:
+        retry = re.search(r"retry in ([\d.]+)", raw, re.IGNORECASE)
+        wait = f" Try again in ~{int(float(retry.group(1)))+1}s." if retry else ""
+        return f"Rate limit exceeded (HTTP 429). Your Gemini free-tier quota is used up.{wait}"
+
+    # Auth errors
+    if "401" in raw or "403" in raw or "UNAUTHENTICATED" in raw or "PERMISSION_DENIED" in raw:
+        return "Authentication failed. Check that your API key is correct."
+
+    # Schema / bad-request errors
+    if "400" in raw or "INVALID_ARGUMENT" in raw:
+        # Try to pull out the actual message
+        m = re.search(r"'message':\s*'([^']{10,120})", raw)
+        short = m.group(1).rstrip("\\n") if m else "Invalid request"
+        return f"API rejected the request: {short}"
+
+    # Anything else — truncate to something reasonable
+    if len(raw) > 200:
+        return raw[:180] + "..."
+    return raw
 
 # ---------------------------------------------------------------------------
 # Drawing spec (filled from PersonalityKernel; renderer draws from it)
@@ -244,23 +273,24 @@ async def run_demo(
         try:
             llm = _get_llm()
         except Exception as e:
-            print("Could not create LLM client. Set an API key for your provider.")
-            print("  Examples: export GEMINI_API_KEY='...'  or  export OPENAI_API_KEY='...'")
-            print("  See config.yaml and README for provider options.")
-            print(f"  Error: {e}")
+            print(f"  Could not create LLM client: {_friendly_error(e)}")
+            print("  Set an API key for your provider, e.g.:")
+            print("    export GEMINI_API_KEY='...'   or   export OPENAI_API_KEY='...'")
             sys.exit(1)
         latent_dim = config.get("latent", {}).get("dimension", 32)
         seeds = [42, 137, 7, 99]
         kernels = []
+        print(f"  Creating {len(seeds)} personalities via LLM ({llm.provider}/{llm.model})...")
         for i, seed in enumerate(seeds):
             rng = np.random.default_rng(seed)
             z = rng.standard_normal(latent_dim).astype(np.float32)
             try:
                 k = await create_personality(z=z.tolist(), llm=llm)
                 kernels.append(k)
-                print(f"  Personality {i + 1}: {k.name}")
+                print(f"  [{i + 1}/{len(seeds)}] {k.name}")
             except Exception as e:
-                print(f"  Failed to create personality {i + 1}: {e}")
+                msg = _friendly_error(e)
+                print(f"\n  Failed to create personality {i + 1}: {msg}")
                 print("  Check your API key and config (config.yaml, llm.provider).")
                 sys.exit(1)
 
@@ -298,33 +328,36 @@ async def run_demo(
         rect = (col * cell_w, row * cell_h, cell_w, cell_h)
         draw_yourself(surf, rect, spec, title=title)
 
-    if save_path:
-        try:
-            pygame.image.save(surf, save_path)
-            print(f"  Saved: {save_path}")
-        except Exception as e:
-            print(f"  Could not save to {save_path}: {e}")
-            sys.exit(1)
+    try:
+        if save_path:
+            try:
+                Path(save_path).parent.mkdir(parents=True, exist_ok=True)
+                pygame.image.save(surf, save_path)
+                abs_path = str(Path(save_path).resolve())
+                print(f"\n  Saved: {abs_path}")
+            except Exception as e:
+                print(f"\n  Could not save to {save_path}: {e}")
+                sys.exit(1)
 
-    if use_window:
-        screen = pygame.display.set_mode((width, height), pygame.RESIZABLE)
-        screen.blit(surf, (0, 0))
-        pygame.display.flip()
-        print("\n  Close the window to exit (or press Escape).")
-        running = True
-        while running:
-            for e in pygame.event.get():
-                if e.type == pygame.QUIT:
-                    running = False
-                if e.type == pygame.KEYDOWN and e.key == pygame.K_ESCAPE:
-                    running = False
-            pygame.time.wait(50)
-        pygame.quit()
-    else:
+        if use_window:
+            screen = pygame.display.set_mode((width, height), pygame.RESIZABLE)
+            pygame.display.set_caption("Draw Yourself — Agentic Personalities")
+            screen.blit(surf, (0, 0))
+            pygame.display.flip()
+            print("  Close the window to exit (or press Escape).")
+            running = True
+            while running:
+                for e in pygame.event.get():
+                    if e.type == pygame.QUIT:
+                        running = False
+                    if e.type == pygame.KEYDOWN and e.key == pygame.K_ESCAPE:
+                        running = False
+                pygame.time.wait(50)
+    finally:
         pygame.quit()
 
     if save_path:
-        print("Done. You have a drawing at:", save_path)
+        print("Done.")
 
 
 def main() -> None:

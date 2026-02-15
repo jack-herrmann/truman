@@ -1,4 +1,4 @@
-# Intuition — Agentic Personalities
+# The Story — Agentic Personalities
 
 We'll all spend more and more time interacting with AI. Why not make those interactions genuinely **meaningful**?
 

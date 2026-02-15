@@ -17,9 +17,12 @@ def test_demo_module_imports():
 async def test_demo_create_personalities_mocked(sample_kernel):
     """create_personalities returns kernels when create_personality is mocked."""
     from demo import create_personalities
-    from unittest.mock import AsyncMock, patch
+    from unittest.mock import AsyncMock, MagicMock, patch
 
-    with patch("demo.create_personality", new_callable=AsyncMock) as create_mock:
+    mock_llm = MagicMock()
+    with patch("intuition.api.create_personality", new_callable=AsyncMock) as create_mock, \
+         patch("intuition.api._get_llm", return_value=mock_llm), \
+         patch("intuition.api._load_config", return_value={"llm": {}, "latent": {"dimension": 32}}):
         create_mock.return_value = sample_kernel
         kernels = await create_personalities(n=2)
     assert len(kernels) == 2

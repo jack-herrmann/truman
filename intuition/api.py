@@ -31,7 +31,8 @@ def _get_llm() -> LLMClient:
     if _llm is not None:
         return _llm
     c = _load_config().get("llm", {})
-    base_url = c.get("base_url") or (c.get("nemo") or {}).get("base_url") if isinstance(c.get("nemo"), dict) else None
+    nemo = c.get("nemo")
+    base_url = c.get("base_url") or (nemo.get("base_url") if isinstance(nemo, dict) else None)
     _llm = LLMClient(
         provider=c.get("provider", "gemini"),
         model=c.get("model", "gemini-2.0-flash"),

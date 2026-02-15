@@ -83,7 +83,8 @@ async def test_coherence_reward_short_traces(mock_embedding_client):
 
 
 async def test_coherence_reward_with_narrative(mock_embedding_client):
-    llm = AsyncMock(return_value="8")
+    llm = MagicMock()
+    llm.generate = AsyncMock(return_value="8")
     reward = CoherenceReward(mock_embedding_client, llm)
     agent = MagicMock()
     agent.kernel = MagicMock()

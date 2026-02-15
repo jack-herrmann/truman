@@ -2,7 +2,8 @@
 from __future__ import annotations
 
 import os
-from unittest.mock import patch
+import sys
+from unittest.mock import patch, MagicMock
 
 import pytest
 
@@ -11,17 +12,20 @@ from intuition.llm.client import LLMClient
 
 def test_nemo_provider_requires_base_url():
     """NeMo provider raises ValueError when NIM_PROXY_BASE_URL and base_url are missing."""
-    client = LLMClient(provider="nemo", model="meta/llama-3.1-8b-instruct")
-    # Remove NIM_PROXY_BASE_URL so we test the missing-config path
-    with patch.dict(os.environ, {"NIM_PROXY_BASE_URL": ""}, clear=False):
-        with pytest.raises(ValueError, match="NIM_PROXY_BASE_URL|base_url"):
-            client._ensure_client()
+    mock_openai = MagicMock()
+    with patch.dict(sys.modules, {"openai": mock_openai}):
+        client = LLMClient(provider="nemo", model="meta/llama-3.1-8b-instruct")
+        # Remove NIM_PROXY_BASE_URL so we test the missing-config path
+        with patch.dict(os.environ, {"NIM_PROXY_BASE_URL": ""}, clear=False):
+            with pytest.raises(ValueError, match="NIM_PROXY_BASE_URL|base_url"):
+                client._ensure_client()
 
 
 def test_nemo_provider_uses_base_url_kwarg():
     """NeMo provider uses base_url passed to constructor."""
-    with patch("intuition.llm.client.openai") as mock_openai:
-        mock_openai.AsyncOpenAI = lambda **kw: None
+    mock_openai = MagicMock()
+    mock_openai.AsyncOpenAI = MagicMock(return_value=MagicMock())
+    with patch.dict(sys.modules, {"openai": mock_openai}):
         client = LLMClient(
             provider="nemo",
             model="meta/llama-3.1-8b-instruct",
@@ -36,8 +40,9 @@ def test_nemo_provider_uses_base_url_kwarg():
 
 def test_nemo_provider_uses_env_when_base_url_not_passed():
     """NeMo provider uses NIM_PROXY_BASE_URL when base_url kwarg not passed."""
-    with patch("intuition.llm.client.openai") as mock_openai:
-        mock_openai.AsyncOpenAI = lambda **kw: None
+    mock_openai = MagicMock()
+    mock_openai.AsyncOpenAI = MagicMock(return_value=MagicMock())
+    with patch.dict(sys.modules, {"openai": mock_openai}):
         client = LLMClient(provider="nemo", model="meta/llama-3.1-8b-instruct")
         with patch.dict(os.environ, {"NIM_PROXY_BASE_URL": "http://env-nim:9000"}, clear=False):
             client._ensure_client()

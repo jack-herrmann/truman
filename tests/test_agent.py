@@ -38,7 +38,7 @@ def test_prompt_builder_build(sample_kernel):
     pb = PromptBuilder()
     text = pb.build(sample_kernel)
     assert sample_kernel.name in text
-    assert "Honesty" in text or "honesty" in text
+    assert "Honesty" in text or "honesty" in text or "HONESTY" in text
     assert "CORE VALUES" in text or "VALUES" in text
 
 

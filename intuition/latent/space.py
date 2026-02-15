@@ -15,6 +15,13 @@ logger = logging.getLogger(__name__)
 
 class PersonalitySpace:
     def __init__(self, vae: PersonalityVAE, dataset: CharacterDataset, embeddings: np.ndarray) -> None:
+        n_profiles = len(dataset)
+        if embeddings.shape[0] != n_profiles:
+            raise ValueError(
+                "Embeddings row count (%d) must match number of character profiles (%d). "
+                "Run: python3 scripts/generate_seed_data.py to regenerate embeddings and VAE."
+                % (embeddings.shape[0], n_profiles)
+            )
         self.vae = vae
         self.dataset = dataset
         self.embeddings = embeddings

@@ -20,6 +20,7 @@ class PersonalityVAE(nn.Module):
         self.input_dim = input_dim
         self.latent_dim = latent_dim
         hidden = hidden_dims or [512, 256]
+        self._hidden_dims = list(hidden)
         encoder_layers: list[nn.Module] = []
         prev = input_dim
         for h in hidden:
@@ -94,13 +95,25 @@ class PersonalityVAE(nn.Module):
     def save(self, path: str) -> None:
         dest = Path(path)
         dest.parent.mkdir(parents=True, exist_ok=True)
-        torch.save({"state_dict": self.state_dict(), "input_dim": self.input_dim,
-                     "latent_dim": self.latent_dim}, str(dest))
+        torch.save(
+            {
+                "state_dict": self.state_dict(),
+                "input_dim": self.input_dim,
+                "latent_dim": self.latent_dim,
+                "hidden_dims": getattr(self, "_hidden_dims", [512, 256]),
+            },
+            str(dest),
+        )
 
     @classmethod
     def load(cls, path: str) -> "PersonalityVAE":
         data = torch.load(str(path), map_location="cpu", weights_only=True)
-        model = cls(input_dim=data["input_dim"], latent_dim=data["latent_dim"])
+        hidden_dims = data.get("hidden_dims", [512, 256])
+        model = cls(
+            input_dim=data["input_dim"],
+            latent_dim=data["latent_dim"],
+            hidden_dims=hidden_dims,
+        )
         model.load_state_dict(data["state_dict"])
         model.eval()
         return model

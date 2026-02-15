@@ -42,8 +42,12 @@ async def create_personality(z=None, like=None, variation=0.5, temperature=1.0, 
     latent_dim = config.get("latent", {}).get("dimension", 32)
     try:
         return await _create_from_latent_space(z, like, variation, temperature, client)
-    except Exception:
-        pass
+    except Exception as exc:
+        logger.warning(
+            "Latent-space personality creation failed, falling back to direct LLM generation: %s",
+            exc,
+            exc_info=False,
+        )
     return await _create_direct(z, latent_dim, temperature, client)
 
 

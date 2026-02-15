@@ -144,6 +144,37 @@ python3 scripts/evaluate.py
 
 **Individuality reward**: Different `z` → meaningfully different behavior. Measured via discriminability (can a classifier tell agents apart?), pairwise behavioral distance, and qualitative judgment.
 
+## Testing
+
+Install test dependencies and run the suite from the project root:
+
+```bash
+pip install -r requirements.txt   # includes pytest, pytest-asyncio
+python3 -m pytest tests/ -v
+```
+
+Tests cover core models (kernel, traces, memory), latent space (VAE save/load, PersonalitySpace validation, interpolation), the agent (StateManager, PromptBuilder), rewards, the public API, and a demo smoke test.
+
+## Demos
+
+- **`demo.py`** — Main demo: create 3 personalities, run them through 3 situations, compare behavior side-by-side.
+- **`person_in_rain.py`** — Visual demo (pygame): 4 personalities draw “person in the rain”.
+- **`demos/conversation.py`** — Interactive chat with one personality. Load a saved kernel or create one.
+- **`demos/interpolate.py`** — Interpolate between two saved personalities; optionally decode the midpoint with the LLM.
+
+Example:
+
+```bash
+# Chat with a saved personality (no API after load)
+python3 demos/conversation.py --kernel data/checkpoints/final_top1.json
+
+# Create a new personality and chat (needs API key)
+python3 demos/conversation.py
+
+# Interpolate between two saved kernels
+python3 demos/interpolate.py kernel_a.json kernel_b.json --decode-mid
+```
+
 ## Project Structure
 
 ```
@@ -159,5 +190,7 @@ intuition/
 └── api.py          # Public API: create_personality, create_agent
 prompts/            # Jinja2 templates for all LLM interactions
 scripts/            # Pipeline entry points
+demos/              # conversation.py, interpolate.py
+tests/              # Pytest suite
 config.yaml         # Centralized configuration
 ```

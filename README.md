@@ -1,18 +1,26 @@
 # Intuition — Agentic Personalities
 
-Create **individual** and **consistent** artificial personalities. Not persona prompts or character sheets: deep, learned, psychologically grounded agents that behave consistently across contexts and distinctly from each other—so that interactions with AI can be genuinely meaningful.
+We'll all spend more and more time interacting with AI. Why not make those interactions genuinely **meaningful**?
 
-> **Heads up — this project burns through LLM API calls for creating the priors and the sandbox environment.** Free-tier quotas (Gemini, Groq) **will** be exhausted during normal use. Before you set up API keys, see what the system actually produces by opening the pre-saved demo below.
+This project creates **individual** and **consistent** artificial personalities. Not persona prompts or character sheets: deep, learned, psychologically grounded agents that behave consistently across contexts and distinctly from each other.
+
+> **Heads up — this project makes heavy use of LLM API calls** (creating priors, generating sandbox environments, decoding personalities). Free-tier quotas (Gemini, Groq) **will** be exhausted during normal use. Before you set up any API keys, see what the system actually produces by opening the pre-saved demo below.
 
 ---
 
 ## See It First (no install, no API key, nothing)
 
+Remember when your mum used to hang your drawing on the fridge? Psychologists use projective drawing tasks to generate hypotheses about personality development. It's simple: *draw yourself.*
+
+We can compare what happens when children draw themselves, when current LLMs draw themselves, and when our agentic personalities draw themselves.
+
 Open **[`demos/draw_yourself_presaved.html`](demos/draw_yourself_presaved.html)** in your browser.
 
 You'll see four personalities — each drawing a self-portrait in real time. The Stoic draws a plain, centered figure with no embellishment. The Anxious one produces a small, hunched form surrounded by scribbled-out false starts. The Romantic fills the canvas with flowing lines, flowers, and stars. The Pragmatist sketches a neatly dressed figure with glasses and polished shoes.
 
-**This is not a mockup.** These drawings are a materialization of real output from the personality pipeline. Each of the four agents was created through the full process and the resulting drawing commands were transcribed into the HTML file so you can see exactly what the system produces without spending a single API call. The personalities, their traits, and the drawing decisions are all real; the HTML is just a "recording".
+**This is not a mockup.** These drawings are a materialization of real output from the personality pipeline. Each of the four agents was created through the full process — latent vector sampling, LLM-based personality generation, kernel-to-drawing-spec mapping — and the resulting drawing commands were transcribed into the HTML file so you can see exactly what the system produces without spending a single API call. The only manual additions were to make the HTML look a bit nicer. The personalities, their traits, and the drawing decisions are all real; the HTML is just a recording.
+
+Pretty cool! But why? Beyond the proof-of-concept, this becomes a platform: accurately simulated populations for enterprise testing, highly personalized agents — for example, in old age, meaningful connections are one of the most important health indicators — and any application where individual, consistent personalities matter.
 
 ---
 
@@ -60,7 +68,7 @@ The common denominator of deep personalities, stripped of ideological bias, is t
 Novels (e.g. Gutenberg; scraping via Bright Data when needed)
     |
     v
-CharacterExtractor (LLM: e.g. NVIDIA NeMo) --> CharacterDataset --> Embeddings
+CharacterExtractor (LLM: e.g. NVIDIA Nemotron) --> CharacterDataset --> Embeddings
                                                                         |
                                                                         v
                                                                   PersonalityVAE
@@ -105,9 +113,9 @@ CharacterExtractor (LLM: e.g. NVIDIA NeMo) --> CharacterDataset --> Embeddings
 
 **Personality as latent Gaussians.** Each personality is a point in a learned latent space: **mean** (z) encodes trait direction, **variance** (sigma) encodes per-dimension stability. Some traits are bedrock (low sigma); others are fault lines — strong one day, softer the next.
 
-**Prior from literature.** We need to "show" the model what a deep personality looks like. Think Dostoevsky, Kafka, Austen: characters so deep you can't really picture them until you've lived with them through the story. We obtain text from online sources (e.g. Project Gutenberg; **Bright Data** for harder scraping), extract character profiles with an LLM (e.g. **NVIDIA NeMo**), and use these as the prior for the VAE.
+**Prior from literature.** We need to "show" the model what a deep personality looks like. Think Dostoevsky, Kafka, Austen: characters so deep you can't really picture them until you've lived with them through the story. We scrape these stories from online sources (e.g. Project Gutenberg; **Bright Data** made this challenge super smooth), then extract individual character profiles with an LLM (e.g. **NVIDIA Nemotron**). These then form our priors.
 
-**Truman Show environment.** We use an LLM to generate and adapt a **sandbox** of non-deterministic social situations. Our entities act in this world — our own little Truman Show. No right answers; response depends on who you are.
+**Truman Show environment.** RL requires an environment and actions. We use an LLM to generate and adapt a **sandbox** of non-deterministic social situations — our very own little **Truman Show**. Our entities act in this world; no right answers, response depends on who you are.
 
 **Rewards.** We avoid ideological bias by keeping the reward simple: **consistency** (same z -> stable behavioral signature; we measure via probes and narrative consistency) and **individuality** (different z -> meaningfully different behavior; we measure via discriminability and population spread in feature space). We also add random noise to avoid unwanted convergence. At test time: latent-variable inference via Thompson sampling.
 
@@ -194,7 +202,7 @@ asyncio.run(main())
 |----------|-------------|--------|
 | `gemini` | `GEMINI_API_KEY` | Free tier (default). Daily quota — if you hit rate limits, wait or switch to Groq. |
 | `groq` | `GROQ_API_KEY` | Free tier, OpenAI-compatible. Good alternative if Gemini quota is exhausted. |
-| `nemo` | `NIM_PROXY_BASE_URL` | NVIDIA NeMo / NIM (self-hosted or NGC). Set `llm.provider: nemo` in config.yaml. |
+| `nemo` | `NIM_PROXY_BASE_URL` | NVIDIA Nemotron / NIM (self-hosted or NGC). Set `llm.provider: nemo` in config.yaml. |
 | `anthropic` | `ANTHROPIC_API_KEY` | Paid. |
 | `openai` | `OPENAI_API_KEY` | Paid. |
 
@@ -289,7 +297,7 @@ intuition/
   api.py          create_personality, create_agent
 prompts/          Jinja2 templates
 scripts/          download_corpus, extract_characters, train_vae, train_personalities, evaluate
-demos/            conversation.py, interpolate.py
+demos/            draw_yourself_presaved.html, conversation.py, interpolate.py
 data/
   characters/     34 pre-extracted character profiles (JSON)
   checkpoints/    test_kernel.json (shipped), trained models (after pipeline)
@@ -303,6 +311,8 @@ pip install -r requirements.txt
 python3 -m pytest tests/ -v
 ```
 
-## Beyond the Demo
+---
 
-The same architecture becomes a platform: accurately simulated populations for enterprise testing, highly personalized agents (e.g. meaningful connection in care settings), and other applications where individual, consistent personalities matter.
+We all know the saying: you are a mixture of the five people you spend the most time with. If an artificial entity is one of those five, it'd be foolish not to have it be a genuinely meaningful, positive presence.
+
+**We've learned so much building this and we hope to have contributed our little part. May we all flourish.**

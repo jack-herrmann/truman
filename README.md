@@ -2,7 +2,7 @@
 
 Create **individual** and **consistent** artificial personalities. Not persona prompts or character sheets: deep, learned, psychologically grounded agents that behave consistently across contexts and distinctly from each other—so that interactions with AI can be genuinely meaningful.
 
-> **Heads up — this project burns through LLM API calls.** Creating personalities, running the Truman Show sandbox, extracting characters from novels — every step calls an LLM. Free-tier quotas (Gemini, Groq) **will** be exhausted during normal use. Before you set up API keys, see what the system actually produces by opening the pre-saved demo below.
+> **Heads up — this project burns through LLM API calls for creating the priors and the sandbox environment.** Free-tier quotas (Gemini, Groq) **will** be exhausted during normal use. Before you set up API keys, see what the system actually produces by opening the pre-saved demo below.
 
 ---
 

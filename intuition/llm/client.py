@@ -139,6 +139,7 @@ class LLMClient:
         if self.provider == "anthropic":
             return await self._structured_anthropic(system, messages, response_model, schema, temp)
         if self.provider == "gemini":
+            schema = self._gemini_sanitize_schema(schema)
             return await self._structured_gemini(system, messages, response_model, schema, temp)
         # OpenAI / Groq
         return await self._structured_openai(system, messages, response_model, schema, temp)
@@ -214,3 +215,24 @@ class LLMClient:
                 return [_resolve(item) for item in obj]
             return obj
         return _resolve(schema)
+
+    @staticmethod
+    def _gemini_sanitize_schema(schema: dict) -> dict:
+        """Remove JSON Schema keys Gemini does not support (e.g. additionalProperties)."""
+        if not isinstance(schema, dict):
+            return schema
+        out = {}
+        for k, v in schema.items():
+            if k == "additionalProperties":
+                continue
+            if k == "items" and isinstance(v, dict):
+                out[k] = LLMClient._gemini_sanitize_schema(v)
+            elif k == "properties" and isinstance(v, dict):
+                out[k] = {pk: LLMClient._gemini_sanitize_schema(pv) for pk, pv in v.items()}
+            elif isinstance(v, dict):
+                out[k] = LLMClient._gemini_sanitize_schema(v)
+            elif isinstance(v, list):
+                out[k] = [LLMClient._gemini_sanitize_schema(x) if isinstance(x, dict) else x for x in v]
+            else:
+                out[k] = v
+        return out

@@ -61,7 +61,7 @@ class PerceptualStyle(BaseModel):
 
 class FaultLine(BaseModel):
     """An internal contradiction."""
-    tension: tuple[str, str] = Field(description="The two conflicting tendencies")
+    tension: list[str] = Field(min_length=2, max_length=2, description="The two conflicting tendencies")
     activation_context: str = Field(description="What kind of situation brings this tension to the surface")
     typical_resolution: str = Field(description="How they usually navigate or suppress the contradiction")
     stress_escalation: str = Field(description="What happens when they cannot resolve it")

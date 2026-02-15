@@ -216,23 +216,25 @@ class LLMClient:
             return obj
         return _resolve(schema)
 
-    @staticmethod
-    def _gemini_sanitize_schema(schema: dict) -> dict:
-        """Remove JSON Schema keys Gemini does not support (e.g. additionalProperties)."""
+    # Keys Gemini does not support in response_schema
+    _GEMINI_UNSUPPORTED_KEYS = frozenset({
+        "additionalProperties", "prefixItems", "$defs", "$schema",
+        "default", "title",
+    })
+
+    @classmethod
+    def _gemini_sanitize_schema(cls, schema: dict) -> dict:
+        """Recursively remove JSON Schema keys the Gemini API does not support."""
         if not isinstance(schema, dict):
             return schema
         out = {}
         for k, v in schema.items():
-            if k == "additionalProperties":
+            if k in cls._GEMINI_UNSUPPORTED_KEYS:
                 continue
-            if k == "items" and isinstance(v, dict):
-                out[k] = LLMClient._gemini_sanitize_schema(v)
-            elif k == "properties" and isinstance(v, dict):
-                out[k] = {pk: LLMClient._gemini_sanitize_schema(pv) for pk, pv in v.items()}
-            elif isinstance(v, dict):
-                out[k] = LLMClient._gemini_sanitize_schema(v)
+            if isinstance(v, dict):
+                out[k] = cls._gemini_sanitize_schema(v)
             elif isinstance(v, list):
-                out[k] = [LLMClient._gemini_sanitize_schema(x) if isinstance(x, dict) else x for x in v]
+                out[k] = [cls._gemini_sanitize_schema(x) if isinstance(x, dict) else x for x in v]
             else:
                 out[k] = v
         return out
